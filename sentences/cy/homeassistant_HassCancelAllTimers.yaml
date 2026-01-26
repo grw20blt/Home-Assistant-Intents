@@ -1,5 +1,14 @@
+---
 language: cy
 intents:
   HassCancelAllTimers:
     data:
-      - sentences: []
+      - sentences:
+          - "<amser_canslo> pob amserydd"
+          - "<amser_canslo> [yr] holl amserwyr"
+      - sentences:
+          - "<amser_canslo> pob amserydd {area}"
+          - "<amser_canslo> [yr] holl amserwyr {area}"
+          - "<amser_canslo> pob amserydd <yn> <area>"
+          - "<amser_canslo> [yr] holl amserwyr <yn> <area>"
+        response: area

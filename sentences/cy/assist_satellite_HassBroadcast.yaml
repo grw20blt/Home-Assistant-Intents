@@ -1,5 +1,6 @@
-language: cy
+language: "cy"
 intents:
   HassBroadcast:
     data:
-      - sentences: []
+      - sentences:
+          - "(darlledu|cyhoeddi) [ym mhobman] [bod] {message}"

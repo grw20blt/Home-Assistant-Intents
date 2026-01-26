@@ -1,8 +1,24 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "cloi drws ffrynt"
+    intent:
+      name: HassTurnOn
+      context:
+        domain: lock
+      slots:
+        name: Front Door
+    response: "Yn cloi"
+
+  - sentences:
+      - "cloi pob clo yn y gegin"
+      - "cloi drysau yn y gegin"
+      - "cloi drysau cegin"
+      - "cloi drws cegin"
+      - "cloi'r drws yn y gegin"
     intent:
       name: HassTurnOn
       slots:
+        area: Kitchen
         domain: lock
-        name: all
+    response: Yn cloi

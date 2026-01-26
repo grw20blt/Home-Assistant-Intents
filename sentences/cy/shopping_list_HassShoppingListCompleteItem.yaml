@@ -1,5 +1,11 @@
-language: cy
+language: "cy"
 intents:
   HassShoppingListCompleteItem:
     data:
-      - sentences: []
+      - sentences:
+          - (ticio|cwblhau|dileu|tynnu) (i ffwrdd;<eitem>) (o|ar|yn) <fy_rhestr>
+          - (ticio|cwblhau|dileu|tynnu) <eitem> (i ffwrdd|o|ar|yn) <fy_rhestr>
+        response: item_completed
+        expansion_rules:
+          fy_rhestr: "[fy|y] rhestr [siopa]"
+          eitem: "{shopping_list_item:item}"

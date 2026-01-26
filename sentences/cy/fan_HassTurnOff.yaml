@@ -1,8 +1,36 @@
-language: cy
+language: "cy"
 intents:
   HassTurnOff:
     data:
-      - sentences: []
+      - sentences:
+          - "<troi> (i ffwrdd|bant) [pob] [<y>] (ffan|fan)[s] <yn> <area>"
+          - "<troi> (i ffwrdd|bant) <area> (ffan|fan)[s]"
+          - "[<troi>] [pob] <area> (ffan|fan)[s] (i ffwrdd|bant)"
+          - "[<troi>] [pob] [<y>] (ffan|fan)[s] [<yn>] <area> (i ffwrdd|bant)"
+          - "dad-actifadu [pob] [<y>] (ffan|fan)[s] [<yn>] <area>"
+          - "dad-actifadu [pob] <area> [<y>] (ffan|fan)[s]"
+        slots:
+          domain: "fan"
+          name: "all"
+        response: fans_area
+
+      - sentences:
+          - "[<troi>] (pob [<y>] (ffan|fan)[s] (i ffwrdd|bant)|[<y>] (ffan|fan)[s] (i ffwrdd|bant) ym mhobman)"
+          - "dad-actifadu (pob [<y>] (ffan|fan)[s]|[<y>] (ffan|fan)[s] ym mhobman)"
+        response: "light_all"
+        slots:
+          domain: "fan"
+          name: "all"
+
+      - sentences:
+          - "<troi> (i ffwrdd|bant) [pob] [<y>] (ffan|fan)[s] [<yma>]"
+          - "<troi> [pob] [<y>] (ffan|fan)[s] ((i ffwrdd|bant);<yma>)"
+          - "<troi> [pob] [<y>] (ffan|fan)[s] (i ffwrdd|bant)"
+        response: "fans_area"
+        expansion_rules:
+          yma: "yma"
         slots:
           domain: fan
-          name: all
+        requires_context:
+          area:
+            slot: true

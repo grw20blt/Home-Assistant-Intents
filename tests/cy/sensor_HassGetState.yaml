@@ -1,8 +1,112 @@
 language: cy
 tests:
-  - sentences: []
+  # Battery
+  - sentences:
+      - "beth yw lefel batri fy ffôn?"
+      - "faint o fatri sydd ar ôl gan fy ffôn?"
     intent:
       name: HassGetState
       slots:
         domain: sensor
-        name: all
+        device_class: battery
+        name: "My Phone"
+    response: "Mae fy ffôn yn 98 %"
+
+  # Temperature
+  - sentences:
+      - "beth yw tymheredd y gegin?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: temperature
+        name: "Kitchen"
+    response: "Mae'r gegin yn 22 °C"
+
+  # Humidity
+  - sentences:
+      - "beth yw lefel lleithder yr ystafell wely?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: humidity
+        name: "Bedroom"
+    response: "Mae'r ystafell wely yn 45 %"
+
+  # Power
+  - sentences:
+      - "beth yw'r pŵer a ddangosir gan ddefnydd pŵer y tŷ?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: power
+        name: "House power usage"
+    response: "Mae defnydd pŵer y tŷ yn 150 W"
+
+  # Energy
+  - sentences:
+      - "beth yw defnydd ynni heddiw?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: energy
+        name: "Today"
+    response: "Mae heddiw yn 12.5 kWh"
+
+  # Pressure
+  - sentences:
+      - "beth yw'r gwasgedd atmosfferig o synhwyrydd aer tu allan?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: atmospheric_pressure
+        name: "Outside air sensor"
+    response: "Mae synhwyrydd aer tu allan yn 1000 hPa"
+
+  # CO2
+  - sentences:
+      - "beth yw lefel co2 synhwyrydd co2 y pwmp gwres?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: carbon_dioxide
+        name: "Heat pump CO2 sensor"
+    response: "Mae synhwyrydd co2 y pwmp gwres yn 50 ppm"
+
+  # Illuminance
+  - sentences:
+      - "beth yw lefel golau'r ystafell fyw?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: illuminance
+        name: "Living Room"
+    response: "Mae'r ystafell fyw yn 450 lx"
+
+  # Voltage
+  - sentences:
+      - "beth yw'r foltedd a ddangosir gan foltedd y tŷ?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: voltage
+        name: "House voltage"
+    response: "Mae foltedd y tŷ yn 120 V"
+
+  # Distance
+  - sentences:
+      - "beth yw pellter y car?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: distance
+        name: "Car"
+    response: "Mae'r car yn 2.5 km"

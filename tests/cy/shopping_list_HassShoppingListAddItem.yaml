@@ -1,6 +1,20 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "ychwanegu bara i'r rhestr siopa"
+      - "rhoi bara ar fy rhestr siopa"
+      - "ychwanegu bara i fy rhestr"
     intent:
       name: HassShoppingListAddItem
-      slots: {}
+      slots:
+        item: "bara"
+    response: "Wedi ychwanegu bara i'r rhestr siopa"
+
+  - sentences:
+      - "ychwanegu llefrith i'r rhestr"
+      - "rhoi llefrith ar y rhestr siopa"
+    intent:
+      name: HassShoppingListAddItem
+      slots:
+        item: "llefrith"
+    response: "Wedi ychwanegu llefrith i'r rhestr siopa"

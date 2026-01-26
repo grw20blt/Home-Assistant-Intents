@@ -1,6 +1,63 @@
 language: cy
 tests:
-  - sentences: []
+  # Current area or floor
+  - sentences:
+      - "gosod tymheredd i 30°"
     intent:
       name: HassClimateSetTemperature
-      slots: {}
+      slots:
+        temperature: 30
+    response: "Tymheredd wedi'i osod i 30 gradd"
+
+  # By area name
+  - sentences:
+      - "gosod tymheredd yn ystafell wely i 50 gradd"
+      - "gosod tymheredd ystafell wely i 50 gradd"
+    intent:
+      name: HassClimateSetTemperature
+      slots:
+        area: Bedroom
+        temperature: 50
+    response: "Tymheredd wedi'i osod i 50 gradd"
+
+  # By floor name
+  - sentences:
+      - "gosod tymheredd y llawr cyntaf i 50 gradd"
+      - "gosod tymheredd llawr cyntaf i 50 gradd"
+    intent:
+      name: HassClimateSetTemperature
+      slots:
+        floor: First Floor
+        temperature: 50
+    response: "Tymheredd wedi'i osod i 50 gradd"
+
+  # By climate entity name
+  - sentences:
+      - "gosod thermostat swyddfa i 1°"
+      - "gosod tymheredd thermostat y swyddfa i 1°"
+    intent:
+      name: HassClimateSetTemperature
+      slots:
+        name: "Office Thermostat"
+        temperature: 1
+    response: "Tymheredd wedi'i osod i 1 gradd"
+
+  # Fractional temperature (numeric)
+  - sentences:
+      - "gosod tymheredd i 20.5°"
+      - "gosod tymheredd i 20.5 °"
+      - "gosod tymheredd i 20.5 gradd"
+    intent:
+      name: HassClimateSetTemperature
+      slots:
+        temperature: 20.5
+    response: "Tymheredd wedi'i osod i 20.5 gradd"
+
+  # Fractional temperature (words)
+  - sentences:
+      - "gosod tymheredd i ugain pwynt pump gradd"
+    intent:
+      name: HassClimateSetTemperature
+      slots:
+        temperature: 20.5
+    response: "Tymheredd wedi'i osod i ugain pwynt pump gradd"

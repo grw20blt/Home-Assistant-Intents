@@ -1,6 +1,33 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "dad-oedi TV"
+      - "TV dad-oedi"
+      - "ailddechrau TV"
+      - "TV ailddechrau"
     intent:
       name: HassMediaUnpause
-      slots: {}
+      slots:
+        name: "TV"
+    response: "Wedi ailddechrau"
+  - sentences:
+      - "dad-oedi"
+      - "ailddechrau"
+    intent:
+      name: HassMediaUnpause
+      slots:
+        area: "Living Room"
+      context:
+        area: Living Room
+    response: "Wedi ailddechrau"
+  - sentences:
+      - "ailddechrau cerddoriaeth yn yr ystafell fyw"
+      - "dad-oedi fy sioe yn yr ystafell fyw"
+      - "ailddechrau chwaraeydd cyfryngau ystafell fyw"
+    intent:
+      name: HassMediaUnpause
+      slots:
+        area: "Living Room"
+      context:
+        area: Living Room
+    response: "Wedi ailddechrau"

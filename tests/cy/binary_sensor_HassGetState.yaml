@@ -1,8 +1,121 @@
 language: cy
 tests:
-  - sentences: []
+  # Door
+  - sentences:
+      - "ydy'r drws ffrynt ar agor?"
     intent:
       name: HassGetState
       slots:
         domain: binary_sensor
-        name: all
+        device_class: door
+        name: "Front Door"
+        state: "on"
+    response: "Ydy"
+
+  # Window
+  - sentences:
+      - "ydy'r ffenestr yn yr ystafell wely ar gau?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: window
+        name: "Bedroom"
+        state: "off"
+    response: "Ydy"
+
+  # Motion
+  - sentences:
+      - "ydy synhwyrydd mudiant y gegin yn canfod mudiant?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: motion
+        name: "Kitchen"
+        state: "on"
+    response: "Ydy"
+
+  # Occupancy
+  - sentences:
+      - "oes rhywun yn yr ystafell fyw?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: occupancy
+        name: "Living Room"
+        state: "on"
+    response: "Oes"
+
+  # Moisture
+  - sentences:
+      - "ydy'r synhwyrydd lleithder yn canfod lleithder?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: moisture
+        name: "Moisture Sensor"
+        state: "on"
+    response: "Ydy"
+
+  # Lock
+  - sentences:
+      - "ydy'r clo wedi'i gloi?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: lock
+        name: "Lock"
+        state: "off"
+    response: "Ydy"
+
+  # Safety
+  - sentences:
+      - "ydy'r synhwyrydd diogelwch yn iawn?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: safety
+        name: "Safety Sensor"
+        state: "off"
+    response: "Ydy"
+
+  # Smoke
+  - sentences:
+      - "ydy'r synhwyrydd mwg yn canfod mwg?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: smoke
+        name: "Smoke Detector"
+        state: "on"
+    response: "Ydy"
+
+  # Battery
+  - sentences:
+      - "ydy batri'r ffôn yn isel?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery
+        name: "Phone"
+        state: "on"
+    response: "Ydy"
+
+  # Connectivity
+  - sentences:
+      - "ydy'r peiriant wedi'i gysylltu?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: connectivity
+        name: "Machine"
+        state: "on"
+    response: "Ydy"

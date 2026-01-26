@@ -1,8 +1,13 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "gosod falf dŵr safle i 50"
+      - "agor falf dŵr i 75"
+      - "cau falf dŵr i 25"
     intent:
       name: HassSetPosition
       slots:
-        domain: valve
-        name: all
+        name: "Water Valve"
+        domain: "valve"
+        position: 50
+    response: "Wedi gosod safle y falf"

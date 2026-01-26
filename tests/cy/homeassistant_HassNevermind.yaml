@@ -1,6 +1,12 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "dim ots"
+      - "anghofiwch e"
+      - "anghofiwch o"
+      - "paid â phoeni"
+      - "peidiwch â phoeni"
+      - "gadewch hi"
+      - "gadewch e"
     intent:
       name: HassNevermind
-      slots: {}

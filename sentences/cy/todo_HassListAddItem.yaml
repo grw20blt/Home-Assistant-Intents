@@ -1,5 +1,13 @@
-language: cy
+language: "cy"
 intents:
   HassListAddItem:
     data:
-      - sentences: []
+      - sentences:
+          - ychwanegu <eitem> (at|i) <fy_rhestr>
+          - rhoi <eitem> (ar|yn) <fy_rhestr>
+        response: item_added
+        requires_context:
+          domain: todo
+        expansion_rules:
+          fy_rhestr: "[fy|y] {name} [rhestr]"
+          eitem: "{todo_list_item:item}"

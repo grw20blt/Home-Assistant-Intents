@@ -1,6 +1,45 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "gosod sain TV i 90 y cant"
+      - "newid sain y teledu i 90"
+      - "troi sain TV i lawr i 90 y cant"
+      - "ar y teledu cynyddu'r sain i 90 y cant"
+      - "troi'r sain i lawr i 90 y cant ar y teledu"
+      - "troi'r sain i fyny i 90 ar y teledu"
     intent:
       name: HassSetVolume
-      slots: {}
+      slots:
+        name: "TV"
+        volume_level: 90
+    response: "Sain wedi'i osod"
+  - sentences:
+      - "gosod sain i 90 y cant"
+      - "newid y sain i 90"
+      - "troi sain i lawr i 90 y cant"
+      - "cynyddu'r sain i 90 y cant"
+      - "troi'r sain i lawr i 90 y cant"
+      - "troi'r sain i fyny i 90"
+    intent:
+      name: HassSetVolume
+      context:
+        area: Living Room
+      slots:
+        area: "Living Room"
+        volume_level: 90
+    response: "Sain wedi'i osod"
+  - sentences:
+      - "gosod sain ystafell fyw i 90 y cant"
+      - "newid y sain yn yr ystafell fyw i 90"
+      - "troi sain i lawr i 90 y cant yn ystafell fyw"
+      - "cynyddu'r sain yn ystafell fyw i 90 y cant"
+      - "yn yr ystafell fyw troi'r sain i lawr i 90 y cant"
+      - "troi'r sain i fyny i 90 yn yr ystafell fyw"
+    intent:
+      name: HassSetVolume
+      context:
+        area: Living Room
+      slots:
+        area: "Living Room"
+        volume_level: 90
+    response: "Sain wedi'i osod"

@@ -2,4 +2,7 @@ language: cy
 intents:
   HassVacuumReturnToBase:
     data:
-      - sentences: []
+      - sentences:
+          - "dychwelyd <name> [i'r safle]"
+        requires_context:
+          domain: vacuum

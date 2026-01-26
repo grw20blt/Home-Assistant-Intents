@@ -1,6 +1,49 @@
+---
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "ychwanegu 5 munud at yr amserydd"
+      - "cynyddu fy amserydd 5 munud"
     intent:
       name: HassIncreaseTimer
-      slots: {}
+      slots:
+        minutes: 5
+    response: 5 munud wedi'u hychwanegu at yr amserydd
+
+  - sentences:
+      - "ychwanegu 5 munud at amserydd 1 awr"
+      - "ychwanegu 5 munud at amserydd 1-awr"
+      - "ychwanegu 5 munud at amserydd am 1 awr"
+      - "cynyddu amserydd 1 awr 5 munud"
+      - "cynyddu amserydd am 1 awr 5 munud"
+    intent:
+      name: HassIncreaseTimer
+      slots:
+        minutes: 5
+        start_hours: 1
+    response: 5 munud wedi'u hychwanegu at yr amserydd
+
+  - sentences:
+      - "ychwanegu 5 munud at amserydd pizza"
+      - "ychwanegu 5 munud at amserydd o'r enw pizza"
+      - "cynyddu amserydd pizza 5 munud"
+      - "cynyddu amserydd ar gyfer pizza 5 munud"
+    intent:
+      name: HassIncreaseTimer
+      slots:
+        minutes: 5
+        name:
+          - "pizza"
+    response: 5 munud wedi'u hychwanegu at amserydd o'r enw pizza
+
+  - sentences:
+      - "ychwanegu 5 munud at amserydd cegin"
+      - "ychwanegu 5 munud at amserydd yn y gegin"
+      - "cynyddu amserydd yn y gegin 5 munud"
+      - "cynyddu amserydd cegin 5 munud"
+    intent:
+      name: HassIncreaseTimer
+      slots:
+        minutes: 5
+        area: Kitchen
+    response: 5 munud wedi'u hychwanegu at yr amserydd

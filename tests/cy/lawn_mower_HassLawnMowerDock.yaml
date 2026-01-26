@@ -1,6 +1,19 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "stopio torri'r lawnt"
+      - "canslo torri lawnt"
+      - "stopio'r torrwr glaswellt"
     intent:
       name: HassLawnMowerDock
       slots: {}
+    response: "Wedi stopio torri"
+
+  - sentences:
+      - "docio y torrwr glaswellt"
+      - "dychwelyd y torrwr glaswellt i'r doc"
+    intent:
+      name: HassLawnMowerDock
+      slots:
+        name: "Lawn Mower"
+    response: "Wedi docio"

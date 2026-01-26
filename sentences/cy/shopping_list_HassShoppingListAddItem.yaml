@@ -1,5 +1,11 @@
-language: cy
+language: "cy"
 intents:
   HassShoppingListAddItem:
     data:
-      - sentences: []
+      - sentences:
+          - ychwanegu <eitem> (at|i) <fy_rhestr>
+          - rhoi <eitem> (ar|yn) <fy_rhestr>
+        response: item_added
+        expansion_rules:
+          fy_rhestr: "[fy|y] rhestr [siopa]"
+          eitem: "{shopping_list_item:item}"

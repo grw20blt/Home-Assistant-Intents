@@ -2,4 +2,23 @@ language: cy
 intents:
   HassClimateSetTemperature:
     data:
-      - sentences: []
+      # Ardal neu lawr cyfredol / Current area or floor
+      - sentences:
+          - "(<gosod_rhif>|addasu) [<y>] <tymheredd_gair> [i] <tymheredd>"
+
+      # Trwy enw ardal / By area name
+      - sentences:
+          - "(<gosod_rhif>|addasu) [<y>] <tymheredd_gair> <yn> <area> [i] <tymheredd>"
+          - "(<gosod_rhif>|addasu) <tymheredd_gair> <area> [i] <tymheredd>"
+
+      # Trwy enw llawr / By floor name
+      - sentences:
+          - "(<gosod_rhif>|addasu) [<y>] <tymheredd_gair> (o|ar) <floor> [i] <tymheredd>"
+          - "(<gosod_rhif>|addasu> <tymheredd_gair> <floor> [i] <tymheredd>"
+
+      # Trwy enw endid hinsawdd / By climate entity name
+      - sentences:
+          - "(<gosod_rhif>|addasu) [<y>] <tymheredd_gair> [[o|ar] <name>] [i] <tymheredd>"
+          - "(<gosod_rhif>|addasu) <name> [<tymheredd_gair>] [i] <tymheredd>"
+        requires_context:
+          domain: "climate"

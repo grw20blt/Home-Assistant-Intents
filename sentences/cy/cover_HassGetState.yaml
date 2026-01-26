@@ -2,7 +2,46 @@ language: cy
 intents:
   HassGetState:
     data:
-      - sentences: []
+      - sentences:
+          - "<ydy> <name> {cover_states:state} [<yn_area_floor>]"
+        response: one_yesno
+        requires_context:
+          domain: cover
         slots:
           domain: cover
-          name: all
+
+      - sentences:
+          - "<beth_yw> [<y>] <cyflwr> <name> [<yn_area_floor>]"
+        response: one
+        requires_context:
+          domain: cover
+        slots:
+          domain: cover
+
+      - sentences:
+          - "<oes_unrhyw> {cover_classes:device_class} {cover_states:state} [<yn_area_floor>]"
+          - "<oes_unrhyw> <area_floor> {cover_classes:device_class} {cover_states:state}"
+        response: any
+        slots:
+          domain: cover
+
+      - sentences:
+          - "<ydy_pob> {cover_classes:device_class} {cover_states:state} [<yn_area_floor>]"
+          - "<ydy_pob> <area_floor> {cover_classes:device_class} {cover_states:state}"
+        response: all
+        slots:
+          domain: cover
+
+      - sentences:
+          - "<pa> {cover_classes:device_class} <sy> {cover_states:state} [<yn_area_floor>]"
+          - "<pa> <area_floor> {cover_classes:device_class} <sy> {cover_states:state}"
+        response: which
+        slots:
+          domain: cover
+
+      - sentences:
+          - "<faint> {cover_classes:device_class} <sy> {cover_states:state} [<yn_area_floor>]"
+          - "<faint> <area_floor> {cover_classes:device_class} <sy> {cover_states:state}"
+        response: how_many
+        slots:
+          domain: cover

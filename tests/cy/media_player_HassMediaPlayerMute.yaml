@@ -1,6 +1,21 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "tawelu"
+      - "tawelu'r gerddoriaeth"
+      - "tawelu'r cyfryngau yma"
     intent:
       name: HassMediaPlayerMute
-      slots: {}
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+    response: "Wedi tawelu"
+  - sentences:
+      - "tawelu'r teledu"
+      - "tawelu cerddoriaeth ar y teledu"
+    intent:
+      name: HassMediaPlayerMute
+      slots:
+        name: "TV"
+    response: "Wedi tawelu"

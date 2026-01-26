@@ -1,5 +1,13 @@
+---
 language: cy
 intents:
   HassCancelTimer:
     data:
-      - sentences: []
+      - sentences:
+          - "<amser_canslo> [yr] amserydd"
+          - "<amser_canslo> [yr] amserydd <amser_dechrau>"
+          - "<amser_canslo> [yr] amserydd am <amser_dechrau>"
+          - "<amser_canslo> [yr] amserydd {area}"
+          - "<amser_canslo> [yr] amserydd <yn> <area>"
+          - "<amser_canslo> [yr] amserydd {timer_name:name}"
+          - "<amser_canslo> [yr] amserydd ar gyfer {timer_name:name}"

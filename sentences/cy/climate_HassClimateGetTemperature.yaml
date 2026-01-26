@@ -2,4 +2,18 @@ language: cy
 intents:
   HassClimateGetTemperature:
     data:
-      - sentences: []
+      # Cael tymheredd hinsawdd yn yr un ardal â dyfais lloeren / Get temperature of a climate in the same area as a satellite device
+      - sentences:
+          - "(<beth_yw>|<sut_mae>) [<y>] [cyfredol] <tymheredd_gair> [<yma>]"
+          - "(pa mor|faint o) (boeth|oer|gynnes|cool) yw hi [<yma>]"
+        requires_context:
+          area:
+            slot: true
+
+      # Cael tymheredd hinsawdd mewn ardal neu gydag enw / Get temperature of a climate in an area or with a name
+      - sentences:
+          - "(<beth_yw>|<sut_mae>) [<y>] [cyfredol] <tymheredd_gair> [[o|ar] <name>]"
+          - "(<beth_yw>|<sut_mae>) [<y>] [cyfredol] <tymheredd_gair> <yn> <area>"
+          - "(<beth_yw>|<sut_mae>) <tymheredd_gair> [cyfredol] <area>"
+          - "(<beth_yw>|<sut_mae>) <tymheredd_gair> [cyfredol] <name>"
+          - "(pa mor|faint o) (boeth|oer|gynnes|cool) yw (<name>|[hi <yn>] <area>)"

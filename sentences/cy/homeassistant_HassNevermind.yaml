@@ -2,4 +2,9 @@ language: cy
 intents:
   HassNevermind:
     data:
-      - sentences: []
+      - sentences:
+          - "dim ots"
+          - "anghofiwch (e|o)"
+          - "paid â phoeni"
+          - "peidiwch â phoeni"
+          - "gadewch (hi|e|o)"

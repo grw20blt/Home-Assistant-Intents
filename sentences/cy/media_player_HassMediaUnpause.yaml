@@ -2,4 +2,15 @@ language: cy
 intents:
   HassMediaUnpause:
     data:
-      - sentences: []
+      - sentences:
+          - "((dad-oedi|parhau|ailgychwyn);<name>)"
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "(dad-oedi|parhau|ailgychwyn)"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(dad-oedi|parhau|ailgychwyn) [[y] (cerddoriaeth|sioe[au] [teledu]|chwaraeydd cyfryngau)] [yn|ym] <area>"
+          - "(dad-oedi|parhau|ailgychwyn) (cerddoriaeth|sioe[au] [teledu]|chwaraeydd cyfryngau) <area>"

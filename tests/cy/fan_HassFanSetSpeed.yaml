@@ -1,6 +1,56 @@
+---
 language: cy
 tests:
-  - sentences: []
+  # Current area
+  - sentences:
+      - "gosod cyflymder ffan i 50%"
+      - "gosod cyflymder y ffaniau yma i 50%"
+      - "newid ffaniau i 50%"
+      - "ffaniau 50%"
     intent:
       name: HassFanSetSpeed
-      slots: {}
+      context:
+        area: Living Room
+      slots:
+        area: Living Room
+        percentage: 50
+    response: "Cyflymder wedi'i osod"
+
+  # Fan by name
+  - sentences:
+      - "gosod cyflymder ffan nenfwd i 50%"
+      - "gosod cyflymder y ffan nenfwd i 50%"
+      - "gwneud ffan nenfwd 50%"
+      - "ffan nenfwd 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        name: Ceiling Fan
+        percentage: 50
+    response: "Cyflymder wedi'i osod"
+
+  # Area by name
+  - sentences:
+      - "gosod cyflymder ffan cegin i 50%"
+      - "gosod cyflymder ffaniau cegin i 50%"
+      - "gwneud ffaniau cegin 50%"
+      - "ffaniau cegin 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        area: Kitchen
+        percentage: 50
+    response: "Cyflymder wedi'i osod"
+
+  # Floor by name
+  - sentences:
+      - "gosod cyflymder ffan llawr cyntaf i 50%"
+      - "gosod cyflymder ffaniau'r llawr cyntaf i 50%"
+      - "gwneud ffaniau llawr cyntaf 50%"
+      - "ffaniau llawr cyntaf 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        floor: First Floor
+        percentage: 50
+    response: "Cyflymder wedi'i osod"

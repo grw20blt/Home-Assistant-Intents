@@ -1,6 +1,21 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "dad-dawelu"
+      - "dad-dawelu'r gerddoriaeth"
+      - "dad-dawelu'r cyfryngau yma"
     intent:
       name: HassMediaPlayerUnmute
-      slots: {}
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+    response: "Wedi dad-dawelu"
+  - sentences:
+      - "dad-dawelu'r teledu"
+      - "dad-dawelu cerddoriaeth ar y teledu"
+    intent:
+      name: HassMediaPlayerUnmute
+      slots:
+        name: "TV"
+    response: "Wedi dad-dawelu"

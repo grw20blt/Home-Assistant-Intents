@@ -1,8 +1,37 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "troi'r ffan ymlaen yn y gegin"
+      - "troi pob ffan ymlaen yn y gegin"
+      - "troi pob ffan ymlaen yn y gegin"
+      - "troi ffan y gegin ymlaen"
+      - "troi ffaniau cegin ymlaen"
+      - "troi ffan cegin ymlaen"
+      - "troi ffaniau cegin ymlaen"
+      - "troi pob ffan cegin ymlaen"
+      - "troi pob ffan cegin ymlaen"
+      - "pob ffan cegin ymlaen"
+      - "ffaniau cegin ymlaen"
+      - "actifadu ffaniau cegin"
     intent:
       name: HassTurnOn
       slots:
+        area: Kitchen
         domain: fan
         name: all
+    response: Wedi troi'r ffaniau ymlaen
+
+  - sentences:
+      - "troi pob ffan ymlaen"
+      - "troi'r ffaniau ymlaen yma"
+      - "troi pob ffan ymlaen yma"
+      - "troi'r ffaniau yma ymlaen"
+      - "troi'r ffaniau ymlaen"
+    intent:
+      name: HassTurnOn
+      context:
+        area: Living Room
+      slots:
+        domain: fan
+        area: Living Room
+    response: "Wedi troi'r ffaniau ymlaen"

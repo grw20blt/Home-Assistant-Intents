@@ -2,4 +2,11 @@ language: cy
 intents:
   HassLawnMowerDock:
     data:
-      - sentences: []
+      - sentences:
+          - "(stopio|canslo) torri [[<y> ]lawnt]"
+          - "stopio [<y>] torrwr glaswellt"
+      - sentences:
+          - "(stopio|docio) <name> [torrwr glaswellt]"
+          - "dychwelyd <name> [torrwr glaswellt] [i'r (safle|doc)]"
+        requires_context:
+          domain: lawn_mower

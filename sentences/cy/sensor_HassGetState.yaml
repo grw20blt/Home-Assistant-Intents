@@ -2,7 +2,616 @@ language: cy
 intents:
   HassGetState:
     data:
-      - sentences: []
+      # https://www.home-assistant.io/integrations/sensor/
+      # Apparent power / Pŵer ymddangosiadol
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: apparent_power
         slots:
           domain: sensor
-          name: all
+          device_class: apparent_power
+        expansion_rules:
+          dosbarth: "pŵer ymddangosiadol"
+
+      # AQI
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: aqi
+        slots:
+          domain: sensor
+          device_class: aqi
+        expansion_rules:
+          dosbarth: "(AQI|mynegai ansawdd aer)"
+
+      # Atmospheric pressure / Gwasgedd atmosfferig
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: atmospheric_pressure
+        slots:
+          domain: sensor
+          device_class: atmospheric_pressure
+        expansion_rules:
+          dosbarth: "gwasgedd (atmosfferig|aer)"
+
+      # Battery / Batri
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+          - "faint o fatri sydd gan <name> [ar ôl]"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: battery
+        slots:
+          domain: sensor
+          device_class: battery
+        expansion_rules:
+          dosbarth: "[lefel] batri [sy'n weddill]"
+
+      # CO2
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: carbon_dioxide
+        slots:
+          domain: sensor
+          device_class: carbon_dioxide
+        expansion_rules:
+          dosbarth: "(lefel|crynodiad) (carbon deuocsid|CO2)"
+
+      # CO
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: carbon_monoxide
+        slots:
+          domain: sensor
+          device_class: carbon_monoxide
+        expansion_rules:
+          dosbarth: "(lefel|crynodiad) (carbon monocsid|CO)"
+
+      # Current / Cerrynt
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: current
+        slots:
+          domain: sensor
+          device_class: current
+        expansion_rules:
+          dosbarth: "[swm o] cerrynt [trydanol]"
+
+      # Data rate / Cyfradd data
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: data_rate
+        slots:
+          domain: sensor
+          device_class: data_rate
+        expansion_rules:
+          dosbarth: "(cyfradd|cyflymder) [(llwytho i lawr|llwytho i fyny|data)]"
+
+      # Data size / Maint data
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: data_size
+        slots:
+          domain: sensor
+          device_class: data_size
+        expansion_rules:
+          dosbarth: "(maint [data]|(swm|maint) [y] data)"
+
+      # Date / Dyddiad
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+          - "pryd (mae|oedd|bydd) <name>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: date
+        slots:
+          domain: sensor
+          device_class: date
+        expansion_rules:
+          dosbarth: "dyddiad [calendr]"
+
+      # Distance / Pellter
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: distance
+        slots:
+          domain: sensor
+          device_class: distance
+        expansion_rules:
+          dosbarth: "pellter"
+
+      # Duration / Parhad
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: duration
+        slots:
+          domain: sensor
+          device_class: duration
+        expansion_rules:
+          dosbarth: "parhad"
+
+      # Energy / Ynni
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: energy
+        slots:
+          domain: sensor
+          device_class: energy
+        expansion_rules:
+          dosbarth: "[swm o] ynni"
+
+      # Energy storage / Storfa ynni
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: energy_storage
+        slots:
+          domain: sensor
+          device_class: energy_storage
+        expansion_rules:
+          dosbarth: "[[cyfanswm] swm o] ynni [wedi'i storio]"
+
+      # Frequency / Amledd
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: frequency
+        slots:
+          domain: sensor
+          device_class: frequency
+        expansion_rules:
+          dosbarth: "amledd"
+
+      # Gas / Nwy
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: gas
+        slots:
+          domain: sensor
+          device_class: gas
+        expansion_rules:
+          dosbarth: "[swm o] [cyfaint] nwy"
+
+      # Humidity / Lleithder
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: humidity
+        slots:
+          domain: sensor
+          device_class: humidity
+        expansion_rules:
+          dosbarth: "lleithder [(aer|atmosfferig)] [cymharol]"
+
+      # Illuminance / Goleuni
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: illuminance
+        slots:
+          domain: sensor
+          device_class: illuminance
+        expansion_rules:
+          dosbarth: "([swm o] goleuni|lefel (golau|disgleirdeb))"
+
+      # Irradiance / Pelydradedd
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: irradiance
+        slots:
+          domain: sensor
+          device_class: irradiance
+        expansion_rules:
+          dosbarth: "([swm o] pelydradedd|lefel ymbelydredd)"
+
+      # Moisture / Gwlybaniaeth
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: moisture
+        slots:
+          domain: sensor
+          device_class: moisture
+        expansion_rules:
+          dosbarth: "(gwlybaniaeth [cymharol]|(canran|cymhareb) dŵr)"
+
+      # Monetary / Ariannol
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: monetary
+        slots:
+          domain: sensor
+          device_class: monetary
+        expansion_rules:
+          dosbarth: "[swm o] (arian|gost)"
+
+      # Nitrogen dioxide / Nitrogen deuocsid
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: nitrogen_dioxide
+        slots:
+          domain: sensor
+          device_class: nitrogen_dioxide
+        expansion_rules:
+          dosbarth: "(lefel|crynodiad) (nitrogen deuocsid|NO2)"
+
+      # Nitrogen monoxide / Nitrogen monocsid
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: nitrogen_monoxide
+        slots:
+          domain: sensor
+          device_class: nitrogen_monoxide
+        expansion_rules:
+          dosbarth: "(lefel|crynodiad) (nitrogen monocsid|NO)"
+
+      # Nitrous oxide / Ocsid nitrws
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: nitrous_oxide
+        slots:
+          domain: sensor
+          device_class: nitrous_oxide
+        expansion_rules:
+          dosbarth: "(lefel|crynodiad) (ocsid nitrws|N2O)"
+
+      # Ozone / Osôn
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: ozone
+        slots:
+          domain: sensor
+          device_class: ozone
+        expansion_rules:
+          dosbarth: "lefel (osôn|O3)"
+
+      # PM1
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: pm1
+        slots:
+          domain: sensor
+          device_class: pm1
+        expansion_rules:
+          dosbarth: "((lefel|crynodiad) [o] [gronynnau] PM1|[gronynnau] PM1 [(lefel|crynodiad)])"
+
+      # PM2.5
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: pm25
+        slots:
+          domain: sensor
+          device_class: pm25
+        expansion_rules:
+          dosbarth: "((lefel|crynodiad) [o] [gronynnau] PM2.5|[gronynnau] PM2.5 [(lefel|crynodiad)])"
+
+      # PM10
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: pm10
+        slots:
+          domain: sensor
+          device_class: pm10
+        expansion_rules:
+          dosbarth: "((lefel|crynodiad) [o] [gronynnau] PM10|[gronynnau] PM10 [(lefel|crynodiad)])"
+
+      # Power factor / Ffactor pŵer
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: power_factor
+        slots:
+          domain: sensor
+          device_class: power_factor
+        expansion_rules:
+          dosbarth: "ffactor pŵer"
+
+      # Power / Pŵer
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: power
+        slots:
+          domain: sensor
+          device_class: power
+        expansion_rules:
+          dosbarth: "pŵer"
+
+      # Precipitation / Dyodiad
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: precipitation
+        slots:
+          domain: sensor
+          device_class: precipitation
+        expansion_rules:
+          dosbarth: "[lefel|swm] (dyodiad|[cwympo] (glaw|eira)) [cronedig]"
+
+      # Precipitation intensity / Dwysedd dyodiad
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: precipitation_intensity
+        slots:
+          domain: sensor
+          device_class: precipitation_intensity
+        expansion_rules:
+          dosbarth: "(dwysedd|cyfradd) (dyodiad|[cwympo] (glaw|eira))"
+
+      # Pressure / Gwasgedd
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: pressure
+        slots:
+          domain: sensor
+          device_class: pressure
+        expansion_rules:
+          dosbarth: "gwasgedd"
+
+      # Reactive power / Pŵer adweithiol
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: reactive_power
+        slots:
+          domain: sensor
+          device_class: reactive_power
+        expansion_rules:
+          dosbarth: "pŵer adweithiol"
+
+      # Signal strength / Cryfder signal
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: signal_strength
+        slots:
+          domain: sensor
+          device_class: signal_strength
+        expansion_rules:
+          dosbarth: "cryfder signal"
+
+      # Sound pressure / Gwasgedd sain
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: sound_pressure
+        slots:
+          domain: sensor
+          device_class: sound_pressure
+        expansion_rules:
+          dosbarth: "gwasgedd (sain|acwstig)"
+
+      # Speed / Cyflymder
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: speed
+        slots:
+          domain: sensor
+          device_class: speed
+        expansion_rules:
+          dosbarth: "cyflymder"
+
+      # Sulphur dioxide / Sylffwr deuocsid
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: sulphur_dioxide
+        slots:
+          domain: sensor
+          device_class: sulphur_dioxide
+        expansion_rules:
+          dosbarth: "(lefel|crynodiad) (sylffwr deuocsid|SO2)"
+
+      # Temperature / Tymheredd
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: temperature
+        slots:
+          domain: sensor
+          device_class: temperature
+        expansion_rules:
+          dosbarth: "tymheredd"
+
+      # Volatile organic compounds / Cyfansoddion organig anweddol
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: volatile_organic_compounds
+        slots:
+          domain: sensor
+          device_class: volatile_organic_compounds
+        expansion_rules:
+          dosbarth: "[crynodiad] (VOC[s]|cyfansoddion organig [anweddol])"
+
+      # Volatile organic compounds parts
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: volatile_organic_compounds_parts
+        slots:
+          domain: sensor
+          device_class: volatile_organic_compounds_parts
+        expansion_rules:
+          dosbarth: "[(crynodiad|cymhareb)] (VOC[s]|cyfansoddion organig [anweddol])"
+
+      # Voltage / Foltedd
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: voltage
+        slots:
+          domain: sensor
+          device_class: voltage
+        expansion_rules:
+          dosbarth: "foltedd [cwympo]"
+
+      # Volume / Cyfaint
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: volume
+        slots:
+          domain: sensor
+          device_class: volume
+        expansion_rules:
+          dosbarth: "cyfaint"
+
+      # Volume storage / Storfa cyfaint
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: volume_storage
+        slots:
+          domain: sensor
+          device_class: volume_storage
+        expansion_rules:
+          dosbarth: "cyfaint [cyfan] [wedi'i storio]"
+
+      # Water / Dŵr
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: water
+        slots:
+          domain: sensor
+          device_class: water
+        expansion_rules:
+          dosbarth: "[[cyfanswm] [swm o] dŵr [a ddefnyddiwyd]|defnydd dŵr]"
+
+      # Weight / Pwysau
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: weight
+        slots:
+          domain: sensor
+          device_class: weight
+        expansion_rules:
+          dosbarth: "(pwysau|màs)"
+
+      # Wind speed / Cyflymder gwynt
+      - sentences:
+          - "<beth_yw_dosbarth_enw>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: wind_speed
+        slots:
+          domain: sensor
+          device_class: wind_speed
+        expansion_rules:
+          dosbarth: "cyflymder [gwynt]"

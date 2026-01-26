@@ -2,4 +2,25 @@ language: cy
 intents:
   HassSetVolume:
     data:
-      - sentences: []
+      - sentences:
+          - "<gosod_rhif> sain <name> [i] <sain>"
+          - "troi sain <name> (i fyny|i lawr) [i] <sain>"
+          - "(<gosod_rhif> y sain [i] <sain>;[ar] <name>)"
+          - "(troi (y sain;(i fyny|i lawr)) [i] <sain>;[ar] <name>)"
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "<gosod_rhif> sain [i] <sain>"
+          - "troi sain (i fyny|i lawr) [i] <sain>"
+          - "<gosod_rhif> y sain [i] <sain>"
+          - "troi (y sain;(i fyny|i lawr)) [i] <sain>"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "<gosod_rhif> sain <area> [i] <sain>"
+          - "troi sain <area> (i fyny|i lawr) [i] <sain>"
+          - "troi sain (i fyny|i lawr) [i] <sain> [yn|ym] <area>"
+          - "(<gosod_rhif> y sain [i] <sain>;[yn|ym] <area>)"
+          - "<gosod_rhif> y sain [yn|ym] <area> [i] <sain>"
+          - "(troi (y sain;(i fyny|i lawr)) [i] <sain>;[yn|ym] <area>)"

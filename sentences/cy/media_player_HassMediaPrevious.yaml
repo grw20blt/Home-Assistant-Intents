@@ -2,4 +2,15 @@ language: cy
 intents:
   HassMediaPrevious:
     data:
-      - sentences: []
+      - sentences:
+          - "((blaenorol|yn ôl);<name>)"
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "(blaenorol|yn ôl)"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(blaenorol|yn ôl) [[y] (trac|cân|eitem)] [yn|ym] <area>"
+          - "(trac|cân|eitem) (blaenorol|yn ôl) [yn|ym] <area>"

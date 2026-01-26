@@ -2,7 +2,43 @@ language: cy
 intents:
   HassGetState:
     data:
-      - sentences: []
+      - sentences:
+          - "<ydy> <name> ([<ar_hyn_o_bryd>];{lock_states:state} [<yn> <area>])"
+        response: one_yesno
+        requires_context:
+          domain: lock
         slots:
           domain: lock
-          name: all
+
+      - sentences:
+          - "(<oes> [yna]|oes gennyf) unrhyw <cloiadwy> ([<ar_hyn_o_bryd>];{lock_states:state} [<yn> <area>])"
+          - "(<oes> [yna]|oes gennyf) unrhyw ([<ar_hyn_o_bryd>];{lock_states:state} <cloiadwy> [<yn> <area>])"
+        response: any
+        slots:
+          domain: lock
+
+      - sentences:
+          - "<ydy_pob> <cloiadwy> ([<ar_hyn_o_bryd>];{lock_states:state} [<yn> <area>])"
+        response: all
+        slots:
+          domain: lock
+
+      - sentences:
+          - "(<pa>|pa) <cloiadwy> <sy> ([<ar_hyn_o_bryd>];{lock_states:state} [<yn> <area>])"
+        response: which
+        slots:
+          domain: lock
+
+      - sentences:
+          - "<faint> <cloiadwy> <sy> ([<ar_hyn_o_bryd>];{lock_states:state} [<yn> <area>])"
+        response: how_many
+        slots:
+          domain: lock
+
+      - sentences:
+          - "dywedwch wrthyf [y] statws [cyfredol] <name> [<yn> <area>] [<ar_hyn_o_bryd>]"
+        response: one
+        requires_context:
+          domain: lock
+        slots:
+          domain: lock

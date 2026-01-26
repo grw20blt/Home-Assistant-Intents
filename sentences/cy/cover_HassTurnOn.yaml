@@ -2,7 +2,33 @@ language: cy
 intents:
   HassTurnOn:
     data:
-      - sentences: []
+      - sentences:
+          - "<agor> <name> [<yn> <area>]"
+        requires_context:
+          domain: cover
+        response: cover
+
+      - sentences:
+          - "<agor> [<y>] drws garej"
         slots:
           domain: cover
-          name: all
+          device_class: garage
+        response: cover_device_class
+
+      - sentences:
+          - "<agor> [<y>] {cover_classes:device_class} <yn> <area>"
+          - "<agor> <area> {cover_classes:device_class}"
+        slots:
+          domain: cover
+        response: cover_device_class
+
+      - sentences:
+          - "<agor> [<y>] {cover_classes:device_class} [<yma>]"
+        expansion_rules:
+          yma: "yma"
+        slots:
+          domain: cover
+        response: cover_device_class
+        requires_context:
+          area:
+            slot: true

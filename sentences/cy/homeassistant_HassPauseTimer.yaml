@@ -1,5 +1,13 @@
+---
 language: cy
 intents:
   HassPauseTimer:
     data:
-      - sentences: []
+      - sentences:
+          - "(oedi|rhewi) [yr] amserydd"
+          - "(oedi|rhewi) [yr] amserydd <amser_dechrau>"
+          - "(oedi|rhewi) [yr] amserydd am <amser_dechrau>"
+          - "(oedi|rhewi) [yr] amserydd {area}"
+          - "(oedi|rhewi) [yr] amserydd <yn> <area>"
+          - "(oedi|rhewi) [yr] amserydd {timer_name:name}"
+          - "(oedi|rhewi) [yr] amserydd (o'r enw|wedi'i alw'n|ar gyfer) {timer_name:name}"

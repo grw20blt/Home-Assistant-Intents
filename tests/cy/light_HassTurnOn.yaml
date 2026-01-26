@@ -1,8 +1,80 @@
 language: cy
 tests:
-  - sentences: []
+  # Turn on all lights in an area
+  - sentences:
+      - actifadu goleuadau ystafell fyw
+      - actifadu'r goleuadau yn yr ystafell fyw
+      - troi'r goleuadau ymlaen yn yr ystafell fyw
+      - troi'r holl oleuadau yn yr ystafell fyw ymlaen
+      - troi goleuadau ystafell fyw ymlaen
+      - goleuo'r ystafell fyw
+      - goleuadau ystafell fyw ymlaen
+      - troi pob golau yn yr ystafell fyw ymlaen
+      - troi'r goleuadau ystafell fyw ymlaen
+      - troi golau yr ystafell fyw ymlaen
+
+    intent:
+      name: HassTurnOn
+      slots:
+        area: Living Room
+        domain: light
+    response: "Wedi troi'r goleuadau ymlaen"
+
+    # Turn on all lights in the home
+  - sentences:
+      - actifadu pob golau
+      - actifadu pob golau unigol
+      - troi pob golau ymlaen
+      - troi'r holl oleuadau ymlaen
+      - goleuo'r tŷ cyfan
+      - goleuo'r tŷ i gyd
+      - troi pob golau yn y tŷ ymlaen
+      - troi'r holl oleuadau yn y tŷ ymlaen
+      - troi pob golau yn y cartref ymlaen
+      - troi pob golau ym mhobman ymlaen
+
     intent:
       name: HassTurnOn
       slots:
         domain: light
-        name: all
+
+  # Turn on lights in the same area as a satellite device
+  - sentences:
+      - actifadu'r holl oleuadau yma
+      - actifadu'r goleuadau
+      - actifadu'r goleuadau yn yr ystafell hon
+      - goleuadau ymlaen
+      - goleuo'r ystafell hon
+      - troi'r goleuadau ymlaen
+      - troi pob golau ymlaen yma
+      - troi pob golau yn yr ystafell hon ymlaen
+      - troi'r goleuadau yma ymlaen
+      - troi'r holl oleuadau yma ymlaen
+
+    intent:
+      name: HassTurnOn
+      context:
+        area: Living Room
+      slots:
+        domain: light
+        area: Living Room
+    response: "Wedi troi'r goleuadau ymlaen"
+
+  # Turn on all lights on a floor
+  - sentences:
+      - actifadu goleuadau llawr cyntaf
+      - actifadu'r goleuadau ar y llawr cyntaf
+      - goleuadau llawr cyntaf ymlaen
+      - goleuo'r llawr cyntaf
+      - troi goleuadau'r llawr cyntaf ymlaen
+      - troi'r goleuadau ar y llawr cyntaf ymlaen
+      - troi pob golau ar y llawr cyntaf ymlaen
+      - troi'r holl oleuadau ar y llawr cyntaf ymlaen
+      - troi golau y llawr cyntaf ymlaen
+      - troi pob golau llawr cyntaf ymlaen
+    intent:
+      name: HassTurnOn
+      slots:
+        domain: light
+        floor: First Floor
+    response: "Wedi troi'r goleuadau ymlaen"

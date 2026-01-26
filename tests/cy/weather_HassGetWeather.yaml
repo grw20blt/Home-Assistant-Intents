@@ -1,6 +1,25 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "sut mae'r tywydd?"
+      - "sut mae'r tywydd?"
     intent:
       name: HassGetWeather
-      slots: {}
+    response: 47 °F a glaw
+
+  - sentences:
+      - "sut mae'r tywydd yn Llundain?"
+      - "sut mae'r tywydd yn Llundain?"
+    intent:
+      name: HassGetWeather
+      slots:
+        name: London
+    response: 47 °F a glaw
+
+  - sentences:
+      - "sut mae tywydd Los Angeles?"
+    intent:
+      name: HassGetWeather
+      slots:
+        name: Los Angeles
+    response: 76 °F a clir

@@ -2,4 +2,15 @@ language: cy
 intents:
   HassMediaPause:
     data:
-      - sentences: []
+      - sentences:
+          - "(oedi|rhewi|paws);<name>)"
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "(oedi|rhewi|paws)"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(oedi|rhewi|paws) [[y] (cerddoriaeth|sioe[au] [teledu]|chwaraeydd cyfryngau)] [yn|ym] <area>"
+          - "(oedi|rhewi|paws) (cerddoriaeth|sioe[au] [teledu]|chwaraeydd cyfryngau) <area>"

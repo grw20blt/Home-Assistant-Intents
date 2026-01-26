@@ -2,7 +2,26 @@ language: cy
 intents:
   HassTurnOn:
     data:
-      - sentences: []
+      - sentences:
+          - "[actifadu] <name> [golygfa]"
+          - "<name> ymlaen"
+          - "<troi> (<name> [golygfa];ymlaen)"
+          - "(newid|trosglwyddo) i (<name> [golygfa]|golygfa <name>)"
+        requires_context:
+          domain: scene
         slots:
           domain: scene
-          name: all
+        response: scene
+      - sentences:
+          - "[actifadu] <area> <name> [golygfa]"
+          - "<area> <name> ymlaen"
+          - "<troi> (<area> <name> [golygfa];ymlaen)"
+          - "[actifadu] <name> [golygfa] <yn> <area>"
+          - "<troi> (<name> [golygfa] <yn> <area>;ymlaen)"
+          - "(newid|trosglwyddo) ([i] <area> <name>|<area> i <name>) [golygfa]"
+          - "(newid|trosglwyddo) i <name> [golygfa] <yn> <area>"
+        requires_context:
+          domain: scene
+        slots:
+          domain: scene
+        response: scene

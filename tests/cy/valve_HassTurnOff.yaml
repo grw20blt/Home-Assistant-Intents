@@ -1,8 +1,11 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "cau falf dŵr"
+      - "cau'r falf dŵr"
     intent:
       name: HassTurnOff
       slots:
-        domain: valve
-        name: all
+        name: "Water Valve"
+        domain: "valve"
+    response: "Wedi cau y falf"

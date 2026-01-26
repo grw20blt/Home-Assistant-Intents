@@ -1,8 +1,74 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "ydy'r drws ffrynt wedi'i gloi?"
+      - "ydy'r drws ffrynt wedi'i gloi ar hyn o bryd?"
+      - "ydy'r drws ffrynt wedi'i gloi nawr?"
     intent:
       name: HassGetState
       slots:
         domain: lock
-        name: all
+        name: "Front Door"
+        state: "locked"
+    response: "Ydy"
+
+  - sentences:
+      - "ydy'r drysau llithro wedi'u cloi?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        name: "Sliding Doors"
+        state: "locked"
+    response: "Ydy"
+
+  - sentences:
+      - "oes unrhyw ddrysau heb eu cloi?"
+      - "oes gen i unrhyw ddrysau heb eu cloi?"
+      - "oes unrhyw ddrysau heb eu cloi?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: "unlocked"
+    response: "Oes, Drws Cefn"
+
+  - sentences:
+      - "ydy pob drws wedi'i gloi?"
+      - "ydy'r holl ddrysau wedi'u cloi?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: "locked"
+    response: "Nac ydy, nid yw Drws Cefn wedi'i gloi"
+
+  - sentences:
+      - "pa ddrysau sydd wedi'u cloi?"
+      - "pa ddrysau sydd wedi'u cloi'n ddiogel?"
+      - "pa ddrysau sydd wedi'u cloi'n ddiogel nawr?"
+      - "pa ddrysau sydd wedi'u cloi ar hyn o bryd?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: "locked"
+    response: "Drws Ffrynt, Drws Ochr a Drysau Llithro"
+
+  - sentences:
+      - "faint o ddrysau sydd wedi'u cloi nawr?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: "locked"
+    response: "3"
+
+  - sentences:
+      - "dweud wrthyf statws Drws Ffrynt"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        name: "Front Door"
+    response: "Mae drws ffrynt wedi'i gloi"

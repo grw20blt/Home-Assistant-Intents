@@ -1,6 +1,42 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "helo"
+      - "haia gynorthwyydd cartref"
+      - "shwmae"
     intent:
       name: HassRespond
       slots: {}
+    response: "Shwmae! Sut alla i helpu?"
+
+  - sentences:
+      - "ydych chi wastad yn gwrando"
+      - "ydych chi wastad yn recordio"
+    intent:
+      name: HassRespond
+      slots: {}
+    response: "Dwi ond yn gwrando pan fyddwch chi'n fy actifadu"
+
+  - sentences:
+      - "ble mae fy data'n mynd"
+      - "ble mae'r data'n mynd i"
+    intent:
+      name: HassRespond
+      slots: {}
+    response: "Mae eich data'n aros yn lleol"
+
+  - sentences:
+      - "beth alla i ddweud"
+      - "beth alla i ofyn"
+    intent:
+      name: HassRespond
+      slots: {}
+    response: "Gallwch chi ofyn am statws dyfeisiau neu eu rheoli"
+
+  - sentences:
+      - "pwy wnaeth chi"
+      - "pwy greodd chi"
+    intent:
+      name: HassRespond
+      slots: {}
+    response: "Cafodd fi fy nghreu gan y gymuned Home Assistant"

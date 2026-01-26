@@ -2,4 +2,15 @@ language: cy
 intents:
   HassMediaPlayerUnmute:
     data:
-      - sentences: []
+      - sentences:
+          - "(dad-dawelu|dad-fute|unmute);<name>)"
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "(dad-dawelu|dad-fute|unmute)"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(dad-dawelu|dad-fute|unmute) [[y] (cerddoriaeth|chwaraeydd cyfryngau)] [yn|ym] <area>"
+          - "(dad-dawelu|dad-fute|unmute) <area>"

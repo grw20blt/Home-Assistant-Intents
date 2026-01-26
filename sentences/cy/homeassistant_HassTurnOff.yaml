@@ -2,4 +2,16 @@ language: cy
 intents:
   HassTurnOff:
     data:
-      - sentences: []
+      - sentences:
+          - "<troi> (<area> <name>|<name> [<yn> <area>]) (i ffwrdd|bant)"
+          - "[<troi>] (<area> <name>|<name> [<yn> <area>]) [(yn|i)] (i ffwrdd|bant)"
+          - "(diffodd|dad-actifadu) (<area> <name>|<name> [<yn> <area>])"
+          - "stopio (<area> <name>|<name> [<yn> <area>])"
+        excludes_context:
+          domain:
+            - binary_sensor
+            - cover
+            - lock
+            - scene
+            - script
+            - sensor

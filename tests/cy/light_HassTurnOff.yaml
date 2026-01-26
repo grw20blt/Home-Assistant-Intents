@@ -1,8 +1,77 @@
 language: cy
 tests:
-  - sentences: []
+  # Turn off all lights in an area
+  - sentences:
+      - diffodd goleuadau cegin
+      - diffodd y goleuadau yn y gegin
+      - dad-actifadu goleuadau cegin
+      - dad-actifadu'r goleuadau yn y gegin
+      - goleuadau cegin i ffwrdd
+      - goleuadau'r gegin i ffwrdd
+      - troi'r goleuadau i ffwrdd yn y gegin
+      - troi pob golau yn y gegin i ffwrdd
+      - diffodd pob golau yn y gegin
+      - troi goleuadau'r gegin i ffwrdd
+    intent:
+      name: HassTurnOff
+      slots:
+        area: Kitchen
+        domain: light
+    response: "Wedi diffodd y goleuadau"
+
+  # Turn off all lights in the home
+  - sentences:
+      - dad-actifadu pob golau
+      - dad-actifadu pob golau unigol
+      - diffodd pob golau
+      - diffodd yr holl oleuadau
+      - troi pob golau i ffwrdd
+      - troi'r holl oleuadau i ffwrdd
+      - diffodd pob golau yn y tŷ
+      - diffodd pob golau yn y cartref
+      - troi pob golau ym mhobman i ffwrdd
+      - diffodd yr holl oleuadau yn y tŷ
     intent:
       name: HassTurnOff
       slots:
         domain: light
-        name: all
+
+  # Turn off lights in the same area as a satellite device
+  - sentences:
+      - dad-actifadu'r holl oleuadau yma
+      - dad-actifadu'r goleuadau
+      - dad-actifadu'r goleuadau yn yr ystafell hon
+      - goleuadau i ffwrdd
+      - diffodd y goleuadau
+      - troi'r goleuadau i ffwrdd
+      - diffodd pob golau yma
+      - diffodd pob golau yn yr ystafell hon
+      - troi'r goleuadau yma i ffwrdd
+      - troi'r holl oleuadau yma i ffwrdd
+    intent:
+      name: HassTurnOff
+      context:
+        area: Living Room
+      slots:
+        domain: light
+        area: Living Room
+    response: "Wedi diffodd y goleuadau"
+
+  # Turn off all lights on a floor
+  - sentences:
+      - dad-actifadu goleuadau llawr cyntaf
+      - dad-actifadu'r goleuadau ar y llawr cyntaf
+      - goleuadau llawr cyntaf i ffwrdd
+      - diffodd goleuadau'r llawr cyntaf
+      - diffodd y goleuadau ar y llawr cyntaf
+      - troi goleuadau'r llawr cyntaf i ffwrdd
+      - diffodd pob golau ar y llawr cyntaf
+      - troi'r holl oleuadau ar y llawr cyntaf i ffwrdd
+      - diffodd golau y llawr cyntaf
+      - troi pob golau llawr cyntaf i ffwrdd
+    intent:
+      name: HassTurnOff
+      slots:
+        domain: light
+        floor: First Floor
+    response: "Wedi diffodd y goleuadau"

@@ -1,8 +1,47 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "diffodd y ffan yn yr ystafell fyw"
+      - "diffodd pob ffan yn yr ystafell fyw"
+      - "diffodd pob ffan yn yr ystafell fyw"
+      - "diffodd ffan yr ystafell fyw"
+      - "diffodd ffaniau ystafell fyw"
+      - "diffodd ffan ystafell fyw"
+      - "diffodd ffaniau ystafell fyw"
+      - "diffodd pob ffan ystafell fyw"
+      - "diffodd pob ffan ystafell fyw"
+      - "ffaniau ystafell fyw i ffwrdd"
+      - "dad-actifadu ffaniau ystafell fyw"
+    intent:
+      name: HassTurnOff
+      slots:
+        area: Living Room
+        domain: fan
+        name: all
+    response: "Wedi diffodd y ffaniau"
+
+  - sentences:
+      - diffodd y ffan ym mhobman
+      - diffodd pob ffan
+      - dad-actifadu pob ffan
+      - dad-actifadu'r ffan ym mhobman
     intent:
       name: HassTurnOff
       slots:
         domain: fan
         name: all
+
+  - sentences:
+      - "diffodd pob ffan"
+      - "diffodd y ffaniau yma"
+      - "diffodd pob ffan yma"
+      - "diffodd y ffaniau yma"
+      - "diffodd y ffaniau"
+    intent:
+      name: HassTurnOff
+      context:
+        area: Living Room
+      slots:
+        domain: fan
+        area: Living Room
+    response: "Wedi diffodd y ffaniau"

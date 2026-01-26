@@ -1,6 +1,24 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "troi i ffwrdd lamp ystafell wely"
+      - "troi lamp ystafell wely i ffwrdd"
+      - "troi'r lamp ystafell wely i ffwrdd"
+      - "lamp ystafell wely i ffwrdd"
+      - "diffodd lamp ystafell wely"
+      - "lamp ystafell wely bant"
     intent:
       name: HassTurnOff
-      slots: {}
+      slots:
+        name: Bedroom Lamp
+    response: "Wedi troi y golau i ffwrdd"
+
+  - sentences:
+      - "troi switsh cegin i ffwrdd"
+      - "diffodd switsh cegin"
+      - "switsh cegin bant"
+    intent:
+      name: HassTurnOff
+      slots:
+        name: Kitchen Switch
+    response: "Wedi troi y switsh i ffwrdd"

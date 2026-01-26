@@ -1,6 +1,30 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "oedi TV"
+      - "TV oedi"
     intent:
       name: HassMediaPause
-      slots: {}
+      slots:
+        name: "TV"
+    response: "Wedi oedi"
+  - sentences:
+      - "oedi"
+    intent:
+      name: HassMediaPause
+      slots:
+        area: "Living Room"
+      context:
+        area: Living Room
+    response: "Wedi oedi"
+  - sentences:
+      - "oedi cerddoriaeth yn yr ystafell fyw"
+      - "oedi fy sioe yn yr ystafell fyw"
+      - "oedi chwaraeydd cyfryngau ystafell fyw"
+    intent:
+      name: HassMediaPause
+      slots:
+        area: "Living Room"
+      context:
+        area: Living Room
+    response: "Wedi oedi"

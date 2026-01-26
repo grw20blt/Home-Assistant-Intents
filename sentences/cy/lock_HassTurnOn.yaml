@@ -2,7 +2,16 @@ language: cy
 intents:
   HassTurnOn:
     data:
-      - sentences: []
-        slots:
+      - sentences:
+          - "cloi <name> [<yn> <area>]"
+        requires_context:
           domain: lock
-          name: all
+        response: lock
+
+      - sentences:
+          - "cloi [pob] <cloiadwy> [<yn>] <area>"
+          - "cloi [pob] <area> [<cloiadwy>]"
+          - "cloi pob <cloiadwy>"
+        slots:
+          domain: "lock"
+        response: lock

@@ -1,6 +1,18 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "dechrau torri'r lawnt"
+      - "torri lawnt"
+      - "dechrau'r torrwr glaswellt"
     intent:
       name: HassLawnMowerStartMowing
       slots: {}
+    response: "Wedi dechrau torri'r lawnt"
+
+  - sentences:
+      - "dechrau y torrwr glaswellt"
+    intent:
+      name: HassLawnMowerStartMowing
+      slots:
+        name: "Lawn Mower"
+    response: "Wedi dechrau torri"

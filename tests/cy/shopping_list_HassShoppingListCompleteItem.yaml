@@ -1,6 +1,21 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "ticio bara i ffwrdd o'r rhestr siopa"
+      - "cwblhau bara o fy rhestr"
+      - "dileu bara o'r rhestr siopa"
+      - "tynnu bara o fy rhestr siopa"
     intent:
       name: HassShoppingListCompleteItem
-      slots: {}
+      slots:
+        item: "bara"
+    response: "Wedi ticio bara"
+
+  - sentences:
+      - "cwblhau llefrith o'r rhestr"
+      - "dileu llefrith o'r rhestr siopa"
+    intent:
+      name: HassShoppingListCompleteItem
+      slots:
+        item: "llefrith"
+    response: "Wedi ticio llefrith"

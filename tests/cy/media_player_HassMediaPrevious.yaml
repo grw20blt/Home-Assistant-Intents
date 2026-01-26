@@ -1,6 +1,45 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "mynd yn ôl ar y teledu"
+      - "mynd yn ôl i'r gân flaenorol ar y teledu"
+      - "mynd yn ôl i'r trac diwethaf ar y teledu"
+      - "ailchwarae'r trac diwethaf ar y teledu"
+      - "TV mynd yn ôl i'r trac blaenorol"
+      - "TV mynd yn ôl i'r gân ddiwethaf"
+      - "TV chwarae'r trac diwethaf"
+      - "TV chwarae'r gân flaenorol"
+      - "TV chwarae'r gân flaenorol eto"
+      - "TV ailchwarae'r trac diwethaf"
     intent:
       name: HassMediaPrevious
-      slots: {}
+      slots:
+        name: "TV"
+    response: "Yn chwarae blaenorol"
+  - sentences:
+      - "mynd yn ôl"
+      - "mynd yn ôl i'r gân flaenorol"
+      - "mynd yn ôl i'r trac diwethaf"
+      - "ailchwarae'r trac diwethaf"
+      - "chwarae'r gân ddiwethaf eto"
+      - "ailchwarae"
+    intent:
+      name: HassMediaPrevious
+      slots:
+        area: "Living Room"
+      context:
+        area: Living Room
+    response: "Yn chwarae blaenorol"
+  - sentences:
+      - "mynd yn ôl yn yr ystafell fyw"
+      - "mynd yn ôl i'r gân flaenorol yn yr ystafell fyw"
+      - "mynd yn ôl i'r trac diwethaf yn yr ystafell fyw"
+      - "ailchwarae'r trac diwethaf yn yr ystafell fyw"
+      - "yn yr ystafell fyw chwarae'r gân ddiwethaf eto"
+    intent:
+      name: HassMediaPrevious
+      slots:
+        area: "Living Room"
+      context:
+        area: Living Room
+    response: "Yn chwarae blaenorol"

@@ -1,6 +1,108 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "beth yw tymheredd y tu allan?"
+      - "beth sy'r gwerth cyfredol o tymheredd y tu allan?"
+      - "dywed wrtha i gyflwr tymheredd y tu allan"
     intent:
       name: HassGetState
-      slots: {}
+      slots:
+        name: "Outside Temperature"
+    response: "Mae Outside Temperature yn 42 °F"
+
+  - sentences:
+      - "ydy'r lamp ystafell wely ymlaen?"
+      - "ydy lamp ystafell wely ymlaen?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Bedroom Lamp"
+        state: "on"
+    response: "Nac ydy, off"
+
+  - sentences:
+      - "oes unrhyw switshis ymlaen yn y gegin?"
+      - "dywed wrtha i os oes 'na switshis ymlaen yn y gegin"
+      - "oes switshis ymlaen yn y gegin?"
+    intent:
+      name: HassGetState
+      slots:
+        area: "Kitchen"
+        domain: "switch"
+        state: "on"
+    response: "Oes, Kitchen Switch"
+
+  - sentences:
+      - "ydy pob switsh ymlaen?"
+      - "ydy'r holl switshis ymlaen?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "switch"
+        state: "on"
+    response: "Nac ydyn, Bedroom Switch ddim yn on"
+
+  - sentences:
+      - "ydy pob switsh ymlaen yn y gegin?"
+      - "ydy'r holl switshis wedi troi ymlaen yn y gegin?"
+      - "ydy pob switsh yn y gegin ymlaen?"
+    intent:
+      name: HassGetState
+      slots:
+        area: "Kitchen"
+        domain: "switch"
+        state: "on"
+    response: "Ydyn"
+
+  - sentences:
+      - "ydy pob golau i ffwrdd?"
+      - "ydy'r holl oleuadau i ffwrdd?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "light"
+        state: "off"
+    response: "Nac ydyn, nid yw Garage Light, Kitchen cabinets, Kitchen ceiling a 3 yn rhagor yn off"
+
+  - sentences:
+      - "pa oleuadau sy ymlaen?"
+      - "pa oleuadau ydy ymlaen?"
+      - "p'un goleuadau sy ymlaen?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "light"
+        state: "on"
+    response: "Garage Light, Kitchen cabinets, Kitchen ceiling a 3 yn rhagor"
+
+  - sentences:
+      - "pa oleuadau sy ymlaen yn y gegin?"
+      - "pa oleuadau ydy ymlaen yn y gegin?"
+    intent:
+      name: HassGetState
+      slots:
+        area: "Kitchen"
+        domain: "light"
+        state: "on"
+    response: "Kitchen cabinets, Kitchen ceiling a Kitchen countertop"
+
+  - sentences:
+      - "faint o oleuadau sy ymlaen?"
+      - "faint o oleuadau ydy ymlaen?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "light"
+        state: "on"
+    response: "6"
+
+  - sentences:
+      - "faint o oleuadau sy ymlaen yn y gegin?"
+      - "faint o oleuadau ydy ymlaen yn y gegin?"
+    intent:
+      name: HassGetState
+      slots:
+        area: "Kitchen"
+        domain: "light"
+        state: "on"
+    response: "3"

@@ -1,6 +1,42 @@
+---
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "canslo amserydd"
+      - "stopio fy amserydd"
+      - "stopio'r amserydd"
     intent:
       name: HassCancelTimer
-      slots: {}
+    response: Amserydd wedi'i ganslo
+
+  - sentences:
+      - "canslo amserydd 5 munud"
+      - "canslo amserydd 5-munud"
+      - "stopio amserydd am 5 munud"
+      - "stopio amserydd 5 munud"
+    intent:
+      name: HassCancelTimer
+      slots:
+        start_minutes: 5
+    response: Amserydd wedi'i ganslo
+
+  - sentences:
+      - "canslo amserydd pizza"
+      - "stopio fy amserydd pizza"
+      - "stopio fy amserydd ar gyfer pizza"
+    intent:
+      name: HassCancelTimer
+      slots:
+        name:
+          - "pizza "
+          - "pizza"
+    response: Amserydd wedi'i ganslo
+
+  - sentences:
+      - "canslo amserydd cegin"
+      - "stopio amserydd yn y gegin"
+    intent:
+      name: HassCancelTimer
+      slots:
+        area: Kitchen
+    response: Amserydd wedi'i ganslo

@@ -1,6 +1,18 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "dechrau rover"
+      - "cychwyn rover"
     intent:
       name: HassVacuumStart
-      slots: {}
+      slots:
+        name: "Rover"
+    response: "Wedi dechrau"
+
+  - sentences:
+      - "glanhau'r llawr cyntaf"
+    intent:
+      name: HassVacuumStart
+      slots:
+        floor: "First Floor"
+    response: "Wedi dechrau"

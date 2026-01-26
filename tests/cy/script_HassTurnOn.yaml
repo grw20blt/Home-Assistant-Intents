@@ -1,8 +1,12 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "rhedeg sgript wakeup"
+      - "actifadu wakeup sgript"
+      - "dechrau wakeup"
     intent:
       name: HassTurnOn
       slots:
-        domain: script
-        name: all
+        name: "Wakeup"
+        domain: "script"
+    response: "Wedi rhedeg y sgript"

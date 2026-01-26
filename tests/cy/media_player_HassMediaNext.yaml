@@ -1,6 +1,45 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "eitem nesaf ar y teledu"
+      - "hepgor cân ar y teledu"
+      - "hepgor trac ar y teledu"
+      - "hepgor i'r gân nesaf ar y teledu"
+      - "hepgor i'r trac nesaf ar y teledu"
+      - "hepgor y gân hon ar y teledu"
+      - "hepgor y trac ar y teledu"
+      - "hepgor ar y teledu"
+      - "hepgor hwn ar y teledu"
+      - "TV hepgor hwn"
     intent:
       name: HassMediaNext
-      slots: {}
+      slots:
+        name: "TV"
+    response: "Yn chwarae nesaf"
+  - sentences:
+      - "eitem nesaf"
+      - "hepgor cân"
+      - "hepgor trac"
+      - "hepgor i'r gân nesaf"
+      - "hepgor i'r trac nesaf"
+      - "hepgor y gân hon"
+      - "hepgor y trac"
+      - "hepgor"
+      - "hepgor hwn"
+    intent:
+      name: HassMediaNext
+      slots:
+        area: "Living Room"
+      context:
+        area: Living Room
+    response: "Yn chwarae nesaf"
+  - sentences:
+      - "eitem nesaf yn ystafell fyw"
+      - "hepgor cân yn ystafell fyw"
+    intent:
+      name: HassMediaNext
+      slots:
+        area: "Living Room"
+      context:
+        area: Living Room
+    response: "Yn chwarae nesaf"

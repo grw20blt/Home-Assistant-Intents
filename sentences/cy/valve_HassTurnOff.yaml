@@ -2,7 +2,10 @@ language: cy
 intents:
   HassTurnOff:
     data:
-      - sentences: []
+      - sentences:
+          - "<cau> <name>"
+        requires_context:
+          domain: valve
         slots:
           domain: valve
-          name: all
+        response: valve

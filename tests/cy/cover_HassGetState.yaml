@@ -1,8 +1,130 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "ydy'r llen chwith wedi cau?"
+      - "ydy'r llen chwith wedi'i chau?"
+      - "ydy'r llen chwith ar gau?"
     intent:
       name: HassGetState
       slots:
         domain: cover
-        name: all
+        name: "Curtain Left"
+        state: "closed"
+    response: "Nac ydy, ar agor"
+
+  - sentences:
+      - "beth yw cyflwr y llen chwith?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        name: "Curtain Left"
+    response: "Mae'r llen chwith ar agor"
+
+  - sentences:
+      - "oes unrhyw lenni ar agor yn yr ystafell fyw?"
+      - "oes unrhyw lenni ystafell fyw ar agor?"
+      - "oes unrhyw un o lenni'r ystafell fyw ar agor?"
+      - "oes unrhyw lenni ar agor yn yr ystafell fyw?"
+      - "oes unrhyw lenni ystafell fyw ar agor?"
+      - "unrhyw lenni ystafell fyw ar agor?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        area: "Living Room"
+        device_class: curtain
+        state: "open"
+    response: "Oes, Llen Chwith"
+
+  - sentences:
+      - "oes unrhyw gysgodion ar agor i fyny'r grisiau?"
+      - "oes unrhyw un o'r cysgodion ar agor i fyny'r grisiau?"
+      - "unrhyw gysgodion ar agor i fyny'r grisiau?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        floor: "Upstairs"
+        device_class: shade
+        state: "open"
+    response: "Oes, Cysgod Chwith"
+
+  - sentences:
+      - "oes unrhyw gysgodion ar agor tu allan?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        area: "Outside"
+        device_class: shade
+        state: "open"
+    response: "Nac oes"
+
+  - sentences:
+      - "ydy pob llen ar agor yn yr ystafell fyw?"
+      - "ydy pob llen ystafell fyw ar agor?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        area: "Living Room"
+        device_class: curtain
+        state: "open"
+    response: "Nac ydy, nid yw Llen Dde ar agor"
+
+  - sentences:
+      - "ydy pob llen ar agor ar y llawr cyntaf?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        floor: "First Floor"
+        device_class: curtain
+        state: "open"
+    response: "Nac ydy, nid yw Llen Dde ar agor"
+
+  - sentences:
+      - "pa lenni sydd wedi cau?"
+      - "pa rai o'r llenni sydd wedi cau?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        device_class: curtain
+        state: "closed"
+    response: "Llen Ystafell Wely a Llen Dde"
+
+  - sentences:
+      - "pa lenni ystafell wely sydd wedi cau?"
+      - "pa rai o lenni'r ystafell wely sydd wedi cau?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        area: "Bedroom"
+        device_class: curtain
+        state: "closed"
+    response: "Llen Ystafell Wely"
+
+  - sentences:
+      - "faint o lenni sydd wedi cau?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        device_class: curtain
+        state: "closed"
+    response: "2"
+
+  - sentences:
+      - "faint o lenni ystafell wely sydd wedi cau?"
+      - "faint o lenni'r ystafell wely sydd wedi cau?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        device_class: curtain
+        area: "Bedroom"
+        state: "closed"
+    response: "1"

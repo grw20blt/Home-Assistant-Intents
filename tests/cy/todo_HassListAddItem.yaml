@@ -1,6 +1,21 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "ychwanegu prynu llefrith i fy rhestr gwaith"
+      - "rhoi prynu llefrith ar y rhestr gwaith"
     intent:
       name: HassListAddItem
-      slots: {}
+      slots:
+        item: "prynu llefrith"
+        name: "Work"
+    response: "Wedi ychwanegu prynu llefrith i'r rhestr gwaith"
+
+  - sentences:
+      - "ychwanegu galw mam i fy rhestr tasgau"
+      - "rhoi galw mam ar rhestr tasgau"
+    intent:
+      name: HassListAddItem
+      slots:
+        item: "galw mam"
+        name: "Tasks"
+    response: "Wedi ychwanegu galw mam i'r rhestr tasgau"

@@ -1,6 +1,157 @@
 language: cy
 tests:
-  - sentences: []
+  # disgleirdeb / brightness
+  - sentences:
+      - "gosod disgleirdeb lamp ystafell wely i 50%"
+      - "newid disgleirdeb lamp ystafell wely i 50 y cant"
+      - "gosod lamp ystafell wely i 50% disgleirdeb"
+      - "newid lamp ystafell wely i 50%"
+      - "disgleirdeb lamp ystafell wely 50%"
+      - "lamp ystafell wely 50%"
+      - "troi lamp ystafell wely i 50%"
     intent:
       name: HassLightSet
-      slots: {}
+      slots:
+        brightness: 50
+        name: Bedroom Lamp
+    response: "Wedi gosod disgleirdeb"
+
+  - sentences:
+      - "gosod y disgleirdeb yn yr ystafell wely i 50%"
+      - "newid disgleirdeb ystafell wely i 50 y cant"
+      - "gosod disgleirdeb ystafell wely i 50%"
+      - "newid yr ystafell wely i 50% disgleirdeb"
+      - "gosod ystafell wely i 50%"
+      - "ystafell wely disgleirdeb 50%"
+      - "ystafell wely 50%"
+      - "troi ystafell wely i 50%"
+      - "gosod pob golau yn yr ystafell wely i 50%"
+      - "gosod goleuadau'r ystafell wely i 50% disgleirdeb"
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 50
+        area: Bedroom
+    response: "Wedi gosod disgleirdeb"
+
+  - sentences:
+      - "gosod y disgleirdeb i 50%"
+      - "newid y disgleirdeb yma i 50 y cant"
+      - "troi disgleirdeb i 50% yma"
+      - "gosod y disgleirdeb fan hyn i 50%"
+    intent:
+      name: HassLightSet
+      context:
+        area: Bedroom
+      slots:
+        brightness: 50
+        area: Bedroom
+    response: "Wedi gosod disgleirdeb"
+
+  - sentences:
+      - "gosod disgleirdeb lamp ystafell wely i'r uchaf"
+      - "newid disgleirdeb lamp ystafell wely i'r mwyaf"
+      - "gosod lamp ystafell wely i ddisgleirdeb uchafswm"
+      - "lamp ystafell wely i ddisgleirdeb uchafswm"
+      - "lamp ystafell wely disgleirdeb uchaf"
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 100
+        name: Bedroom Lamp
+    response: "Wedi gosod disgleirdeb"
+
+  - sentences:
+      - "gosod y disgleirdeb yn yr ystafell wely i'r uchaf"
+      - "newid disgleirdeb ystafell wely i'r mwyaf"
+      - "gosod disgleirdeb ystafell wely i'r uchafswm"
+      - "newid yr ystafell wely i ddisgleirdeb uchafswm"
+      - "ystafell wely i ddisgleirdeb uchafswm"
+      - "ystafell wely disgleirdeb uchaf"
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 100
+        area: Bedroom
+    response: "Wedi gosod disgleirdeb"
+
+  - sentences:
+      - "gosod disgleirdeb lamp ystafell wely i'r isaf"
+      - "newid disgleirdeb lamp ystafell wely i isaf"
+      - "gosod lamp ystafell wely i ddisgleirdeb lleiaf"
+      - "gosod lamp ystafell wely i ddisgleirdeb isafswm"
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 1
+        name: Bedroom Lamp
+    response: "Wedi gosod disgleirdeb"
+
+  - sentences:
+      - "gosod y disgleirdeb yn yr ystafell wely i'r isaf"
+      - "newid disgleirdeb ystafell wely i isaf"
+      - "gosod disgleirdeb ystafell wely i'r lleiaf"
+      - "newid yr ystafell wely i ddisgleirdeb isafswm"
+      - "newid yr ystafell wely i ddisgleirdeb lleiaf"
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 1
+        area: Bedroom
+    response: "Wedi gosod disgleirdeb"
+
+  - sentences:
+      - "gosod y disgleirdeb i'r uchaf"
+      - "newid y disgleirdeb yma i'r mwyaf"
+      - "troi disgleirdeb i uchafswm yma"
+    intent:
+      name: HassLightSet
+      context:
+        area: Bedroom
+      slots:
+        brightness: 100
+        area: Bedroom
+    response: "Wedi gosod disgleirdeb"
+
+  # lliw / color
+  - sentences:
+      - "gosod lliw lamp ystafell wely i goch"
+      - "newid lamp ystafell wely i goch"
+      - "gosod lamp ystafell wely i goch"
+      - "newid lliw lamp ystafell wely i goch"
+      - "gosod lliw y lamp ystafell wely i goch"
+      - "lamp ystafell wely goch"
+      - "troi lamp ystafell wely i goch"
+    intent:
+      name: HassLightSet
+      slots:
+        color: red
+        name: Bedroom Lamp
+    response: "Wedi gosod lliw"
+
+  - sentences:
+      - "gosod lliw ystafell wely i goch"
+      - "newid lliw yr ystafell wely i goch"
+      - "lliw ystafell wely goch"
+      - "ystafell wely goch"
+      - "gosod lliw pob golau yn yr ystafell wely i goch"
+    intent:
+      name: HassLightSet
+      slots:
+        color: red
+        area: Bedroom
+    response: "Wedi gosod lliw"
+
+  - sentences:
+      - "gwneud y goleuadau yn goch"
+      - "gosod lliw pob golau yma i goch"
+      - "gwneud pob golau yn goch yma"
+      - "gwneud pob golau fan hyn yn goch"
+    intent:
+      name: HassLightSet
+      context:
+        area: Bedroom
+      slots:
+        color: red
+        area: Bedroom
+    response: "Wedi gosod lliw"

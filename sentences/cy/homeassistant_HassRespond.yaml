@@ -1,5 +1,23 @@
-language: cy
+language: "cy"
 intents:
   HassRespond:
     data:
-      - sentences: []
+      - sentences:
+          - "(helo|haia|shwmae) [gynorthwyydd cartref]"
+        response: hello
+
+      - sentences:
+          - "ydych chi wastad yn (gwrando|recordio)"
+        response: listening
+
+      - sentences:
+          - "ble mae (fy|y) data['n] mynd [i]"
+        response: data
+
+      - sentences:
+          - "beth alla i (ddweud|ofyn)"
+        response: commands
+
+      - sentences:
+          - "pwy (wnaeth|greodd) chi"
+        response: creator

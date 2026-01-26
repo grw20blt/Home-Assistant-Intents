@@ -1,8 +1,74 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "ble mae Joseph"
     intent:
       name: HassGetState
       slots:
         domain: person
-        name: all
+        name: Joseph
+    response: "Mae Joseph gartref"
+
+  - sentences:
+      - "ble mae Ada"
+    intent:
+      name: HassGetState
+      slots:
+        domain: person
+        name: Ada
+    response: "Mae Ada yn y Gwaith"
+
+  - sentences:
+      - "ydy Ada gartref"
+    intent:
+      name: HassGetState
+      slots:
+        domain: person
+        name: Ada
+        state: home
+    response: "Nac ydy, Gwaith"
+
+  - sentences:
+      - "oes unrhyw un gartref"
+    intent:
+      name: HassGetState
+      slots:
+        domain: person
+        state: home
+    response: "Oes, Joseph"
+
+  - sentences:
+      - "ydy pawb gartref"
+    intent:
+      name: HassGetState
+      slots:
+        domain: person
+        state: home
+    response: "Nac ydy, nid yw Ada a John gartref"
+
+  - sentences:
+      - "pwy sydd gartref"
+    intent:
+      name: HassGetState
+      slots:
+        domain: person
+        state: home
+    response: "Joseph"
+
+  - sentences:
+      - "faint o bobl sydd gartref"
+    intent:
+      name: HassGetState
+      slots:
+        domain: person
+        state: home
+    response: "1"
+
+  - sentences:
+      - "ble mae Bob"
+    intent:
+      name: HassGetState
+      slots:
+        domain: person
+        name: Bob
+    response: "Mae'n ddrwg gen i, dydw i ddim yn ymwybodol o unrhyw berson o'r enw Bob"

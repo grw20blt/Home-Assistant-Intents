@@ -1,6 +1,10 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "darlledu mae'r cinio'n barod"
+      - "cyhoeddi ym mhobman bod y cinio'n barod"
     intent:
       name: HassBroadcast
-      slots: {}
+      slots:
+        message: "mae'r cinio'n barod"
+    response: "Wedi darlledu"

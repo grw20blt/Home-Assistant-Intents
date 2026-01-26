@@ -2,7 +2,10 @@ language: cy
 intents:
   HassTurnOn:
     data:
-      - sentences: []
+      - sentences:
+          - "<agor> <name>"
+        requires_context:
+          domain: valve
         slots:
           domain: valve
-          name: all
+        response: valve

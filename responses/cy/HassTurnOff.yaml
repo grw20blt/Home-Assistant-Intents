@@ -2,22 +2,33 @@ language: cy
 responses:
   intents:
     HassTurnOff:
-      default:
-        "TODO: {% set translations = {\n  \"button\": \"the button\",\n  \"\
-        camera\": \"the camera\",\n  \"input_button\": \"the button\",\n  \"alarm_control_panel\"\
-        : \"the alarm\",\n  \"automation\": \"the automation\",\n  \"fan\": \"the\
-        \ fan\",\n  \"climate\": \"the thermostat\",\n  \"humidifier\": \"the humidifier\"\
-        ,\n  \"input_boolean\": \"the switch\",\n  \"siren\": \"the siren\",\n  \"\
-        water_heater\": \"the water heater\",\n  \"light\": \"the light\",\n  \"switch\"\
-        : \"the switch\",\n  \"remote\": \"the remote\",\n  \"vacuum\": \"the vacuum\
-        \ cleaner\",\n  \"media_player\": \"the media player\",\n  \"lawn_mower\"\
-        : \"the lawn mower\"\n} %} Turned off {{ translations.get(state.domain) }}"
-      lights_area: "TODO: Turned off the lights"
-      lights_floor: "TODO: Turned off the lights"
-      fans_area: "TODO: Turned off the fans"
-      cover: "TODO: Closing"
-      light_all: "TODO: Turned off all of the lights"
-      fan_all: "TODO: Turned off all of the fans"
-      cover_device_class: "TODO: Closing the {{ slots.device_class }}"
-      lock: "TODO: Unlocking"
-      valve: "TODO: Closing"
+      default: >-
+        {% set translations = {
+          "button": "y botwm",
+          "camera": "y camera",
+          "input_button": "y botwm",
+          "alarm_control_panel": "yr alarm",
+          "automation": "yr awtomeiddiad",
+          "fan": "y ffan",
+          "climate": "y thermostat",
+          "humidifier": "y lleithydd",
+          "input_boolean": "y switsh",
+          "siren": "y seiren",
+          "water_heater": "y gwresogydd dŵr",
+          "light": "y golau",
+          "switch": "y switsh",
+          "remote": "y rheolydd pell",
+          "vacuum": "y sugnwr llwch",
+          "media_player": "y chwaraeydd cyfryngau",
+          "lawn_mower": "y peiriant torri lawnt"
+        } %}
+        Wedi troi {{ translations.get(state.domain) }} i ffwrdd
+      lights_area: "Wedi troi'r goleuadau i ffwrdd"
+      lights_floor: "Wedi troi'r goleuadau i ffwrdd"
+      fans_area: "Wedi troi'r ffaniau i ffwrdd"
+      cover: "Yn cau"
+      light_all: "Wedi troi'r holl oleuadau i ffwrdd"
+      fan_all: "Wedi troi'r holl ffaniau i ffwrdd"
+      cover_device_class: "Yn cau {{ slots.device_class }}"
+      lock: "Yn datgloi"
+      valve: "Yn cau"

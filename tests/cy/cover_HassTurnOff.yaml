@@ -1,8 +1,76 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "cau drws y garej"
     intent:
       name: HassTurnOff
       slots:
         domain: cover
-        name: all
+        device_class: garage
+    response: "Yn cau'r garej"
+
+  - sentences:
+      - "cau y ffenestri yn y gegin"
+    intent:
+      name: HassTurnOff
+      slots:
+        area: Kitchen
+        domain: cover
+        device_class: window
+    response: "Yn cau'r ffenestri"
+
+  - sentences:
+      - "cau ffenestri'r gegin"
+    intent:
+      name: HassTurnOff
+      slots:
+        area: Kitchen
+        domain: cover
+        device_class: window
+    response: "Yn cau'r ffenestri"
+
+  - sentences:
+      - "cau y llen chwith"
+    intent:
+      name: HassTurnOff
+      slots:
+        name: Curtain Left
+      context:
+        domain: cover
+        device_class: curtain
+    response: "Yn cau"
+
+  - sentences:
+      - "cau y llen chwith yn yr ystafell fyw"
+    intent:
+      name: HassTurnOff
+      slots:
+        name: Curtain Left
+        area: Living Room
+      context:
+        domain: cover
+        device_class: curtain
+    response: "Yn cau"
+
+  - sentences:
+      - "cau y bleinds yn yr ystafell wely"
+      - "cau bleinds ystafell wely"
+    intent:
+      name: HassTurnOff
+      slots:
+        area: Bedroom
+        domain: cover
+        device_class: blind
+
+  - sentences:
+      - "cau'r llenni"
+      - "cau'r llenni yma"
+    intent:
+      name: HassTurnOff
+      context:
+        area: Living Room
+      slots:
+        domain: cover
+        area: Living Room
+        device_class: curtain
+    response: "Yn cau'r llenni"

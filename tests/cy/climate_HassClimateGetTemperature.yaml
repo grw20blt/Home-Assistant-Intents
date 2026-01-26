@@ -1,6 +1,43 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "beth yw'r tymheredd yma?"
+      - "beth yw'r tymheredd?"
+      - "sut mae'r tymheredd?"
+      - "sut mae'r tymheredd?"
+      - "pa mor gynnes yw hi yma?"
+      - "pa mor gynnes yw hi?"
     intent:
       name: HassClimateGetTemperature
-      slots: {}
+      context:
+        area: Office
+      slots:
+        area: Office
+    response: "1 gradd"
+
+  - sentences:
+      - "beth yw'r tymheredd yn yr ystafell fyw?"
+      - "sut mae'r tymheredd yn yr ystafell fyw?"
+      - "pa mor boeth yw hi yn yr ystafell fyw?"
+      - "pa mor boeth yw'r ystafell fyw?"
+      - "beth yw tymheredd yr ystafell fyw?"
+      - "beth yw'r tymheredd yn yr ystafell fyw?"
+      - "beth yw tymheredd yr ystafell fyw?"
+      - "beth yw'r tymheredd yn yr ystafell fyw?"
+      - "beth yw tymheredd ystafell fyw?"
+    intent:
+      name: HassClimateGetTemperature
+      slots:
+        area: Living Room
+    response: "68 gradd"
+
+  - sentences:
+      - "beth yw tymheredd thermostat y swyddfa?"
+      - "beth yw tymheredd thermostat swyddfa?"
+      - "sut mae tymheredd thermostat y swyddfa?"
+      - "pa mor boeth yw thermostat y swyddfa?"
+    intent:
+      name: HassClimateGetTemperature
+      slots:
+        name: Office Thermostat
+    response: "1 gradd"

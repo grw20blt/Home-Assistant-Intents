@@ -1,8 +1,35 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "actifadu golygfa film"
+      - "film ymlaen"
+      - "troi golygfa film ymlaen"
+      - "newid i golygfa film"
     intent:
       name: HassTurnOn
       slots:
-        domain: scene
-        name: all
+        name: "Movie"
+        domain: "scene"
+    response: "Wedi actifadu golygfa film"
+
+  - sentences:
+      - "actifadu ystafell fyw golygfa noswaith"
+      - "newid ystafell fyw i noswaith"
+    intent:
+      name: HassTurnOn
+      slots:
+        name: "Evening"
+        area: "Living Room"
+        domain: "scene"
+    response: "Wedi actifadu golygfa noswaith yn yr ystafell fyw"
+
+  - sentences:
+      - "actifadu golygfa darllen yn ystafell fyw"
+      - "troi golygfa darllen ymlaen yn ystafell fyw"
+    intent:
+      name: HassTurnOn
+      slots:
+        name: "Reading"
+        area: "Living Room"
+        domain: "scene"
+    response: "Wedi actifadu golygfa darllen"

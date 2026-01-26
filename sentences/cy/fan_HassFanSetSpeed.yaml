@@ -1,5 +1,25 @@
-language: cy
+---
+language: "cy"
 intents:
   HassFanSetSpeed:
     data:
-      - sentences: []
+      # ardal gyfredol / current area
+      - sentences:
+          - "[<gosod_rhif>] (ffan|fan)[s] [cyflymder] [<yma>] [i] <fan_speed>"
+          - "[<gosod_rhif>] [<y>] cyflymder [[o] [<y>]] (ffan|fan)[s] [<yma>] [i] <fan_speed>"
+        requires_context:
+          area:
+            slot: true
+
+      # ffan yn ôl enw / fan by name
+      - sentences:
+          - "[<gosod_rhif>] <name> [cyflymder] [i] <fan_speed>"
+          - "[<gosod_rhif>] [<y>] cyflymder [o] <name> [i] <fan_speed>"
+        requires_context:
+          domain: "fan"
+
+      # ardal/llawr yn ôl enw / area/floor by name
+      - sentences:
+          - "[<gosod_rhif>] <area_floor> (ffan|fan)[s] [cyflymder] [i] <fan_speed>"
+          - "[<gosod_rhif>] [<y>] cyflymder [o] <area_floor> (ffan|fan)[s] [i] <fan_speed>"
+          - "[<gosod_rhif>] [<y>] cyflymder [o] (ffan|fan)[s] (yn|ar) <area_floor> [i] <fan_speed>"

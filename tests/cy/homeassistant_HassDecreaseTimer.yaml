@@ -1,6 +1,58 @@
+---
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "tynnu 5 munud o'r amserydd"
+      - "tynnu 5 munud oddi ar fy amserydd"
+      - "tynnu 5 munud o fy amserydd"
+      - "lleihau fy amserydd 5 munud"
     intent:
       name: HassDecreaseTimer
-      slots: {}
+      slots:
+        minutes: 5
+    response: 5 munud wedi'u tynnu o'r amserydd
+
+  - sentences:
+      - "tynnu 5 munud o amserydd 1 awr"
+      - "tynnu 5 munud o amserydd 1-awr"
+      - "tynnu 5 munud o amserydd am 1 awr"
+      - "tynnu 5 munud oddi ar amserydd 1 awr"
+      - "tynnu 5 munud o amserydd 1 awr"
+      - "lleihau amserydd 1 awr 5 munud"
+      - "lleihau amserydd am 1 awr 5 munud"
+    intent:
+      name: HassDecreaseTimer
+      slots:
+        minutes: 5
+        start_hours: 1
+    response: 5 munud wedi'u tynnu o'r amserydd
+
+  - sentences:
+      - "tynnu 5 munud o amserydd pizza"
+      - "tynnu 5 munud o amserydd o'r enw pizza"
+      - "tynnu 5 munud oddi ar amserydd pizza"
+      - "tynnu 5 munud o amserydd pizza"
+      - "lleihau amserydd pizza 5 munud"
+      - "lleihau amserydd ar gyfer pizza 5 munud"
+    intent:
+      name: HassDecreaseTimer
+      slots:
+        minutes: 5
+        name:
+          - "pizza "
+          - "pizza"
+    response: 5 munud wedi'u tynnu o amserydd o'r enw pizza
+
+  - sentences:
+      - "tynnu 5 munud o amserydd cegin"
+      - "tynnu 5 munud o amserydd yn y gegin"
+      - "tynnu 5 munud oddi ar amserydd cegin"
+      - "tynnu 5 munud o amserydd yn y gegin"
+      - "lleihau amserydd yn y gegin 5 munud"
+      - "lleihau amserydd cegin 5 munud"
+    intent:
+      name: HassDecreaseTimer
+      slots:
+        minutes: 5
+        area: Kitchen
+    response: 5 munud wedi'u tynnu o'r amserydd

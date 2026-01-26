@@ -1,6 +1,52 @@
+---
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "statws amserydd"
+      - "statws fy amseryддion"
+      - "faint o amser sydd ar ôl ar fy amseryддion"
+      - "faint sydd ar ôl ar fy amseryддion"
     intent:
       name: HassTimerStatus
-      slots: {}
+    response: |
+      2 amserydd yn rhedeg. 1 amserydd wedi'i oedi. 3 munud ar ôl ar amserydd cegin 5 munud.
+
+  - sentences:
+      - "statws amserydd 1 awr"
+      - "statws amserydd 1-awr"
+      - "statws amserydd 1 awr"
+      - "amser ar ôl ar yr amserydd 1 awr"
+      - "faint sydd ar ôl ar fy amserydd 1 awr"
+    intent:
+      name: HassTimerStatus
+      slots:
+        start_hours: 1
+    response: |
+      Mae'r amserydd wedi'i oedi. 1 munud a 40 eiliad ar ôl.
+
+  - sentences:
+      - "statws amserydd pizza"
+      - "statws amserydd pizza"
+      - "faint o amser ar ôl ar amserydd pizza"
+      - "faint sydd ar ôl ar yr amserydd pizza"
+    intent:
+      name: HassTimerStatus
+      slots:
+        name: "pizza"
+    response: |
+      25 munud ar ôl.
+
+  - sentences:
+      - "statws amserydd cegin"
+      - "statws amserydd cegin"
+      - "statws amserydd yn y gegin"
+      - "faint o amser sydd ar ôl ar amserydd y gegin"
+      - "faint o amser sydd ar ôl ar yr amserydd yn y gegin"
+      - "faint sydd ar ôl ar amserydd y gegin"
+      - "faint sydd ar ôl ar yr amserydd yn y gegin"
+    intent:
+      name: HassTimerStatus
+      slots:
+        area: Kitchen
+    response: |
+      3 munud ar ôl.

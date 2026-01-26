@@ -2,7 +2,10 @@ language: cy
 intents:
   HassTurnOn:
     data:
-      - sentences: []
+      - sentences:
+          - "[actifadu|rhedeg|dechrau|<troi>] <name> [sgript] [ymlaen]"
+        requires_context:
+          domain: script
         slots:
           domain: script
-          name: all
+        response: script

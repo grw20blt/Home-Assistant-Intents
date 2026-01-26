@@ -2,4 +2,99 @@ language: cy
 intents:
   HassLightSet:
     data:
-      - sentences: []
+      # disgleirdeb / brightness
+      - sentences:
+          - "[<gosod_rhif>] disgleirdeb <name> [i] <disgleirdeb>"
+          - "[<gosod_rhif>] [<y>] disgleirdeb [[o|ar] <name>] [i] <disgleirdeb>"
+          - "[<gosod_rhif>] <name> [i] <disgleirdeb> [disgleirdeb]"
+        response: "brightness"
+        requires_context:
+          domain: light
+
+      - sentences:
+          - "<gosod_rhif> <name> i <disgleirdeb>"
+        requires_context:
+          domain: "light"
+        response: "brightness"
+
+      - sentences:
+          - "[<gosod_rhif>] [<y>] disgleirdeb <yn> <area> [i] <disgleirdeb>"
+          - "[<gosod_rhif>] [<y>] disgleirdeb [[o|ar] <area>] [i] <disgleirdeb>"
+          - "[<gosod_rhif>] disgleirdeb <area> [i] <disgleirdeb>"
+          - "[<gosod_rhif>] <area> [i] <disgleirdeb> [disgleirdeb]"
+          - "[<gosod_rhif>] <area> [i] <disgleirdeb>"
+          - "[<gosod_rhif>] [(pob|[yr] holl)] <golau> [<yn>] <area> [i] <disgleirdeb> [disgleirdeb]"
+        response: "brightness"
+
+      - sentences:
+          - "<gosod_rhif> <area> i <disgleirdeb>"
+        response: "brightness"
+
+      - sentences:
+          - "[<gosod_rhif>] [<y>] disgleirdeb [i] <disgleirdeb>"
+          - "[<gosod_rhif>] [<y>] disgleirdeb (<yma>;[i] <disgleirdeb>)"
+        expansion_rules:
+          yma: "(yma|fan hyn)"
+        response: "brightness"
+        requires_context:
+          area:
+            slot: true
+
+      # Disgleirdeb uchaf/isaf / Max/Min brightness
+      - sentences:
+          - "[<gosod_rhif>] disgleirdeb <name> [i] [<y>] {brightness_level:brightness}"
+          - "[<gosod_rhif>] [<y>] disgleirdeb [[o|ar] <name>] [i] [<y>] {brightness_level:brightness}"
+          - "[<gosod_rhif>] <name> [i] [<y>] {brightness_level:brightness} [disgleirdeb]"
+        requires_context:
+          domain: light
+        response: "brightness"
+
+      - sentences:
+          - "[<gosod_rhif>] [<y>] disgleirdeb <yn> <area> [i] [<y>] {brightness_level:brightness}"
+          - "[<gosod_rhif>] [<y>] disgleirdeb [[o|ar] <area>] [i] [<y>] {brightness_level:brightness}"
+          - "[<gosod_rhif>] disgleirdeb <area> [i] [<y>] {brightness_level:brightness}"
+          - "[<gosod_rhif>] <area> [i] [<y>] {brightness_level:brightness} [disgleirdeb]"
+        response: "brightness"
+
+      - sentences:
+          - "[<gosod_rhif>] [<y>] disgleirdeb [i] [<y>] {brightness_level:brightness}"
+          - "[<gosod_rhif>] [<y>] disgleirdeb (<yma>;[i] [<y>] {brightness_level:brightness})"
+        expansion_rules:
+          yma: "(yma|fan hyn)"
+        response: "brightness"
+        requires_context:
+          area:
+            slot: true
+
+      # Cefnogaeth llawr ar gyfer disgleirdeb / Floor support for brightness
+      - sentences:
+          - "[<gosod_rhif>] disgleirdeb <floor> [i] <disgleirdeb>"
+        response: "brightness"
+
+      # lliw / color
+      - sentences:
+          - "[<gosod>] <name> [liw] [i] {color}"
+          - "[<gosod>] [[<y>] lliw [o|ar]] <name> [i] {color}"
+        requires_context:
+          domain: light
+        response: "color"
+
+      - sentences:
+          - "[<gosod>] [[<y>] lliw [o|ar]] (<area> | [(pob|[yr] holl)] (goleuadau|lampau) <yn> <area> | [(pob|[yr] holl)] (goleuadau|lampau) <area>) [i] {color}"
+          - "[<gosod>] (<area> | [(pob|[yr] holl)] (goleuadau|lampau) <yn> <area> | [(pob|[yr] holl)] (goleuadau|lampau) <area>) [liw] [i] {color}"
+        response: "color"
+
+      - sentences:
+          - "[<gosod>] [[<y>] lliw [o|ar]] [(pob|[yr] holl)] <golau> [i] {color}"
+          - "[<gosod>] [[<y>] lliw [o|ar]] [(pob|[yr] holl)] <golau> (<yma>;[i] {color})"
+        expansion_rules:
+          yma: "(yma|fan hyn)"
+        response: "color"
+        requires_context:
+          area:
+            slot: true
+
+      # Cefnogaeth llawr ar gyfer lliw / Floor support for color
+      - sentences:
+          - "[<gosod>] <floor> [liw] [i] {color}"
+        response: "color"

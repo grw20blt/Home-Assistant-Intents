@@ -1,6 +1,25 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "troi ymlaen ffan nenfwd"
+      - "troi ffan nenfwd ymlaen"
+      - "troi'r ffan nenfwd ymlaen"
+      - "ffan nenfwd ymlaen"
+      - "cynnau ffan nenfwd"
+      - "cychwyn y ffan nenfwd"
     intent:
       name: HassTurnOn
-      slots: {}
+      slots:
+        name: Ceiling Fan
+    response: "Wedi troi y ffan ymlaen"
+
+  - sentences:
+      - "troi ymlaen lamp ystafell wely"
+      - "troi lamp ystafell wely ymlaen"
+      - "lamp ystafell wely ymlaen"
+      - "tanio lamp ystafell wely"
+    intent:
+      name: HassTurnOn
+      slots:
+        name: Bedroom Lamp
+    response: "Wedi troi y golau ymlaen"

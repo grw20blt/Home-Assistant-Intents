@@ -2,7 +2,27 @@ language: cy
 intents:
   HassSetPosition:
     data:
-      - sentences: []
+      - sentences:
+          - "(<gosod_rhif>|<agor>|<cau>) <name> [safle] i <position>"
+        requires_context:
+          domain: cover
         slots:
           domain: cover
-          name: all
+
+      - sentences:
+          - "(<gosod_rhif>|<agor>|<cau>) [<y>] {cover_classes:device_class} [safle] (i <position>;<yn> <area>)"
+          - "(<gosod_rhif>|<agor>|<cau>) <area> {cover_classes:device_class} [safle] i <position>"
+        slots:
+          domain: cover
+
+      - sentences:
+          - "(<gosod_rhif>) [<y>] {cover_classes:device_class} [safle] [<yma>] i <position>"
+          - "(<agor>|<cau>) [<y>] {cover_classes:device_class} [<yma>] i <position>"
+        expansion_rules:
+          yma: "yma"
+        slots:
+          domain: cover
+        response: cover_device_class
+        requires_context:
+          area:
+            slot: true

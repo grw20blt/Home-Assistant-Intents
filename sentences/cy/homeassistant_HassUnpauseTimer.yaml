@@ -1,5 +1,13 @@
+---
 language: cy
 intents:
   HassUnpauseTimer:
     data:
-      - sentences: []
+      - sentences:
+          - "(parhau|ailddechrau) [â|gyda] [yr] amserydd"
+          - "(parhau|ailddechrau) [â|gyda] [yr] amserydd <amser_dechrau>"
+          - "(parhau|ailddechrau) [â|gyda] [yr] amserydd am <amser_dechrau>"
+          - "(parhau|ailddechrau) [â|gyda] [yr] amserydd {area}"
+          - "(parhau|ailddechrau) [â|gyda] [yr] amserydd <yn> <area>"
+          - "(parhau|ailddechrau) [â|gyda] [yr] amserydd (o'r enw|wedi'i alw'n|ar gyfer) {timer_name:name}"
+          - "(parhau|ailddechrau) [â|gyda] [yr] amserydd {timer_name:name}"

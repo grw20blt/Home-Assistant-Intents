@@ -1,6 +1,39 @@
+---
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "oedi amserydd"
+      - "oedi fy amserydd"
     intent:
       name: HassPauseTimer
-      slots: {}
+    response: Amserydd wedi'i oedi
+
+  - sentences:
+      - "oedi amserydd 1 awr"
+      - "oedi amserydd 1-awr"
+      - "oedi amserydd am 1 awr"
+    intent:
+      name: HassPauseTimer
+      slots:
+        start_hours: 1
+    response: Amserydd wedi'i oedi
+
+  - sentences:
+      - "oedi amserydd pizza"
+      - "oedi amserydd ar gyfer pizza"
+    intent:
+      name: HassPauseTimer
+      slots:
+        name:
+          - "pizza "
+          - "pizza"
+    response: Amserydd wedi'i oedi
+
+  - sentences:
+      - "oedi amserydd cegin"
+      - "oedi amserydd yn y gegin"
+    intent:
+      name: HassPauseTimer
+      slots:
+        area: Kitchen
+    response: Amserydd wedi'i oedi

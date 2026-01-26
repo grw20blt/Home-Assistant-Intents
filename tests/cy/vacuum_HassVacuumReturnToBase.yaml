@@ -1,6 +1,10 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "dychwelyd rover i'r safle"
+      - "dychwelyd rover"
     intent:
       name: HassVacuumReturnToBase
-      slots: {}
+      slots:
+        name: "Rover"
+    response: "Wedi dychwelyd i'r safle"

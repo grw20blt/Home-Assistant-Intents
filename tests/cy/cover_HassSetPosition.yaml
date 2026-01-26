@@ -1,8 +1,38 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "gosod llen ystafell wely i 50%"
     intent:
       name: HassSetPosition
       slots:
         domain: cover
-        name: all
+        name: "Bedroom Curtain"
+        position: 50
+    response: "Safle wedi'i osod"
+
+  - sentences:
+      - "gosod y llen yn yr ystafell wely i 50%"
+      - "agor y llenni i 50% yn yr ystafell wely"
+    intent:
+      name: HassSetPosition
+      slots:
+        domain: cover
+        device_class: "curtain"
+        area: "Bedroom"
+        position: 50
+    response: "Safle wedi'i osod"
+
+  - sentences:
+      - "agor y llenni i 50%"
+      - "agor y llenni yma i 50%"
+      - "gosod safle'r llenni i 50%"
+    intent:
+      name: HassSetPosition
+      context:
+        area: Living Room
+      slots:
+        domain: cover
+        device_class: curtain
+        area: Living Room
+        position: 50
+    response: "safle'r llenni wedi'i osod"

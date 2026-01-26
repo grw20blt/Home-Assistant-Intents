@@ -1,6 +1,20 @@
+---
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "canslo pob amserydd"
+      - "stopio fy holl amseryддion"
+      - "stopio'r holl amseryддion"
     intent:
       name: HassCancelAllTimers
-      slots: {}
+    response: Wedi canslo 3 amserydd.
+
+  - sentences:
+      - "canslo pob amserydd cegin"
+      - "stopio pob amserydd yn y gegin"
+      - "canslo pob amserydd yn y gegin"
+    intent:
+      name: HassCancelAllTimers
+      slots:
+        area: Kitchen
+    response: Wedi canslo 1 amserydd yn y gegin.

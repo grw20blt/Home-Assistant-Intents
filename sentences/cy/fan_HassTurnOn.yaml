@@ -1,8 +1,27 @@
-language: cy
+language: "cy"
 intents:
   HassTurnOn:
     data:
-      - sentences: []
+      - sentences:
+          - "<troi> ymlaen [pob] [<y>] (ffan|fan)[s] <yn> <area>"
+          - "<troi> ymlaen <area> (ffan|fan)[s]"
+          - "[<troi>] [pob] <area> (ffan|fan)[s] ymlaen"
+          - "actifadu [pob] <area> (ffan|fan)[s]"
+          - "actifadu [pob] (ffan|fan)[s] [<yn>] <area>"
+        slots:
+          domain: "fan"
+          name: "all"
+        response: fans_area
+
+      - sentences:
+          - "<troi> ymlaen [pob] [<y>] (ffan|fan)[s] [<yma>]"
+          - "<troi> [pob] [<y>] (ffan|fan)[s] (ymlaen;<yma>)"
+          - "<troi> [pob] [<y>] (ffan|fan)[s] ymlaen"
+        response: "fans_area"
+        expansion_rules:
+          yma: "yma"
         slots:
           domain: fan
-          name: all
+        requires_context:
+          area:
+            slot: true

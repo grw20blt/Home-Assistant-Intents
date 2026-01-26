@@ -1,5 +1,61 @@
+---
 language: cy
 intents:
   HassTimerStatus:
     data:
-      - sentences: []
+      # Statws amserydd / Timer status
+      - sentences:
+          - "statws amserydd <amser_dechrau>"
+          - "statws [yr] amserydd"
+          - "statws amserwyr"
+          - "statws amserydd {area}"
+        required_keywords:
+          - "amserydd"
+          - "amserwyr"
+          - "statws"
+      # Faint o amser... / How much time...
+      - sentences:
+          - "[faint o] amser [sy] ar ôl ar [yr] amserydd"
+          - "[faint o] amser [sy] ar ôl ar [yr] amserwyr"
+          - "[faint o] amser [sy] ar ôl ar [yr] amserydd <amser_dechrau>"
+          - "[faint o] amser [sy] ar ôl ar [yr] amserydd {area}"
+          - "[faint o] amser [sy] ar ôl ar [yr] amserydd <yn> <area>"
+          - "[faint o] amser [sy] ar ôl ar [yr] amserwyr <yn> <area>"
+        required_keywords:
+          - "amserydd"
+          - "amserwyr"
+          - "ôl"
+      # Pa mor hir... / How long...
+      - sentences:
+          - "pa mor hir [sy] ar ôl ar [yr] amserydd"
+          - "pa mor hir [sy] ar ôl ar [yr] amserwyr"
+          - "pa mor hir [sy] ar ôl ar [yr] amserydd <amser_dechrau>"
+          - "pa mor hir [sy] ar ôl ar [yr] amserydd {area}"
+          - "pa mor hir [sy] ar ôl ar [yr] amserydd <yn> <area>"
+          - "pa mor hir [sy] ar ôl ar [yr] amserwyr <yn> <area>"
+        required_keywords:
+          - "amserydd"
+          - "amserwyr"
+          - "ôl"
+      # Statws o... / Status of...
+      - sentences:
+          - "statws [yr] amserydd"
+          - "statws [yr] amserwyr"
+          - "statws [yr] amserydd <amser_dechrau>"
+          - "statws [yr] amserydd {area}"
+          - "statws [yr] amserwyr {area}"
+          - "statws [yr] amserydd <yn> <area>"
+          - "statws [yr] amserwyr <yn> <area>"
+        required_keywords:
+          - "amserydd"
+          - "amserwyr"
+      # Amserwyr ag enwau / Named timers
+      - sentences:
+          - "statws amserydd {timer_name:name}"
+          - "[faint o] amser [sy] ar ôl ar [yr] amserydd {timer_name:name}"
+          - "statws [yr] amserydd {timer_name:name}"
+          - "statws [yr] amserwyr {timer_name:name}"
+          - "pa mor hir [sy] ar ôl ar [yr] amserydd {timer_name:name}"
+        required_keywords:
+          - "amserydd"
+          - "amserwyr"

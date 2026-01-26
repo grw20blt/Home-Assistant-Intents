@@ -2,4 +2,9 @@ language: cy
 intents:
   HassVacuumStart:
     data:
-      - sentences: []
+      - sentences:
+          - "(dechrau|cychwyn) <name>"
+        requires_context:
+          domain: vacuum
+      - sentences:
+          - <glanhau> <llawr>

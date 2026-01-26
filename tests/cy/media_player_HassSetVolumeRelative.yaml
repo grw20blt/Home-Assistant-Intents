@@ -1,6 +1,220 @@
 language: cy
 tests:
-  - sentences: []
+  # Current area
+  - sentences:
+      - "sain i fyny"
+      - "troi'r sain i fyny"
+      - "cynyddu sain"
+      - "troi'r sain i fyny"
     intent:
       name: HassSetVolumeRelative
-      slots: {}
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+        volume_step: "up"
+  - sentences:
+      - "sain i fyny 20%"
+      - "troi'r sain i fyny 20 y cant"
+      - "cynyddu sain 20%"
+      - "troi'r sain i fyny 20 y cant"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+        volume_step: 20
+    response: "Sain wedi'i osod"
+  - sentences:
+      - "sain i lawr"
+      - "troi'r sain i lawr"
+      - "lleihau sain"
+      - "troi'r sain i lawr"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+        volume_step: "down"
+    response: "Sain wedi'i osod"
+  - sentences:
+      - "sain i lawr 20%"
+      - "troi'r sain i lawr 20 y cant"
+      - "lleihau sain 20%"
+      - "troi'r sain i lawr 20 y cant"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+        volume_step: -20
+    response: "Sain wedi'i osod"
+
+  # Media player by name
+  - sentences:
+      - "sain TV i fyny"
+      - "sain i fyny TV"
+      - "cynyddu'r sain ar y teledu"
+      - "cynyddu sain TV"
+      - "troi sain y teledu i fyny"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: "up"
+    response: "Sain wedi'i osod"
+  - sentences:
+      - "sain TV i fyny 20%"
+      - "sain i fyny TV 20 y cant"
+      - "cynyddu'r sain 20% ar y teledu"
+      - "cynyddu sain TV 20 y cant"
+      - "troi sain y teledu i fyny 20%"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: 20
+    response: "Sain wedi'i osod"
+  - sentences:
+      - "sain TV i lawr"
+      - "sain i lawr TV"
+      - "lleihau'r sain ar y teledu"
+      - "lleihau sain TV"
+      - "troi sain y teledu i lawr"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: "down"
+    response: "Sain wedi'i osod"
+  - sentences:
+      - "sain TV i lawr 20%"
+      - "sain i lawr TV 20 y cant"
+      - "lleihau'r sain 20% ar y teledu"
+      - "lleihau sain TV 20 y cant"
+      - "troi sain y teledu i lawr 20%"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: -20
+    response: "Sain wedi'i osod"
+
+  # Area by name
+  - sentences:
+      - "sain ystafell fyw i fyny"
+      - "troi sain ystafell fyw i fyny"
+      - "sain i fyny yn yr ystafell fyw"
+      - "cynyddu sain yn yr ystafell fyw"
+      - "cynyddu sain ystafell fyw"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+        volume_step: "up"
+    response: "Sain wedi'i osod"
+  - sentences:
+      - "sain ystafell fyw i fyny 20%"
+      - "troi sain ystafell fyw i fyny 20 y cant"
+      - "sain i fyny 20% yn yr ystafell fyw"
+      - "cynyddu sain yn yr ystafell fyw 20 y cant"
+      - "cynyddu sain ystafell fyw 20%"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+        volume_step: 20
+    response: "Sain wedi'i osod"
+  - sentences:
+      - "sain ystafell fyw i lawr"
+      - "troi sain ystafell fyw i lawr"
+      - "sain i lawr yn yr ystafell fyw"
+      - "lleihau sain yn yr ystafell fyw"
+      - "lleihau sain ystafell fyw"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+        volume_step: "down"
+    response: "Sain wedi'i osod"
+  - sentences:
+      - "sain ystafell fyw i lawr 20%"
+      - "troi sain ystafell fyw i lawr 20 y cant"
+      - "sain i lawr 20% yn yr ystafell fyw"
+      - "lleihau sain yn yr ystafell fyw 20 y cant"
+      - "lleihau sain ystafell fyw 20%"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+        volume_step: -20
+    response: "Sain wedi'i osod"
+
+  # Floor by name
+  - sentences:
+      - "sain llawr cyntaf i fyny"
+      - "troi sain llawr cyntaf i fyny"
+      - "sain i fyny ar y llawr cyntaf"
+      - "cynyddu sain ar y llawr cyntaf"
+      - "cynyddu sain llawr cyntaf"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "First Floor"
+      slots:
+        floor: "First Floor"
+        volume_step: "up"
+    response: "Sain wedi'i osod"
+  - sentences:
+      - "sain llawr cyntaf i fyny 20%"
+      - "troi sain llawr cyntaf i fyny 20 y cant"
+      - "sain i fyny 20% ar y llawr cyntaf"
+      - "cynyddu sain ar y llawr cyntaf 20%"
+      - "cynyddu sain llawr cyntaf 20 y cant"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "First Floor"
+      slots:
+        floor: "First Floor"
+        volume_step: 20
+    response: "Sain wedi'i osod"
+  - sentences:
+      - "sain llawr cyntaf i lawr"
+      - "troi sain llawr cyntaf i lawr"
+      - "sain i lawr ar y llawr cyntaf"
+      - "lleihau sain ar y llawr cyntaf"
+      - "lleihau sain llawr cyntaf"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "First Floor"
+      slots:
+        floor: "First Floor"
+        volume_step: "down"
+    response: "Sain wedi'i osod"
+  - sentences:
+      - "sain llawr cyntaf i lawr 20%"
+      - "troi sain llawr cyntaf i lawr 20 y cant"
+      - "sain i lawr 20% ar y llawr cyntaf"
+      - "lleihau sain ar y llawr cyntaf 20%"
+      - "lleihau sain llawr cyntaf 20 y cant"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "First Floor"
+      slots:
+        floor: "First Floor"
+        volume_step: -20
+    response: "Sain wedi'i osod"

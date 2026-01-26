@@ -2,4 +2,17 @@ language: cy
 intents:
   HassTurnOn:
     data:
-      - sentences: []
+      - sentences:
+          - "<troi> (<area> <name>|<name> [<yn> <area>]) (ymlaen|mlaen)"
+          - "[<troi>] (<area> <name>|<name> [<yn> <area>]) [(yn|i)] (ymlaen|mlaen)"
+          - "(cynnau|tanio) (<area> <name>|<name> [<yn> <area>])"
+          - "(cychwyn|dechrau) (<area> <name>|<name> [<yn> <area>])"
+        excludes_context:
+          domain:
+            - binary_sensor
+            - cover
+            - lock
+            - scene
+            - script
+            - sensor
+            - valve

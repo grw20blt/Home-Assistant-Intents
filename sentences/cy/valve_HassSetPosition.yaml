@@ -2,7 +2,9 @@ language: cy
 intents:
   HassSetPosition:
     data:
-      - sentences: []
+      - sentences:
+          - "(<gosod_rhif>|<agor>|<cau>) <name> [safle] i <position>"
+        requires_context:
+          domain: valve
         slots:
           domain: valve
-          name: all

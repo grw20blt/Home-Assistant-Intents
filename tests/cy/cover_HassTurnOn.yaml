@@ -1,8 +1,77 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "agor drws y garej"
     intent:
       name: HassTurnOn
       slots:
         domain: cover
-        name: all
+        device_class: garage
+    response: "Yn agor y garej"
+
+  - sentences:
+      - "agor y ffenestri yn y gegin"
+    intent:
+      name: HassTurnOn
+      slots:
+        area: Kitchen
+        domain: cover
+        device_class: window
+    response: "Yn agor y ffenestri"
+
+  - sentences:
+      - "agor ffenestri'r gegin"
+    intent:
+      name: HassTurnOn
+      slots:
+        area: Kitchen
+        domain: cover
+        device_class: window
+    response: "Yn agor y ffenestri"
+
+  - sentences:
+      - "agor y llen chwith"
+    intent:
+      name: HassTurnOn
+      slots:
+        name: Curtain Left
+      context:
+        domain: cover
+        device_class: curtain
+    response: "Yn agor"
+
+  - sentences:
+      - "agor y llen chwith yn yr ystafell fyw"
+    intent:
+      name: HassTurnOn
+      slots:
+        name: Curtain Left
+        area: Living Room
+      context:
+        domain: cover
+        device_class: curtain
+    response: "Yn agor"
+
+  - sentences:
+      - "agor y bleinds yn y gegin"
+      - "agor bleinds cegin"
+    intent:
+      name: HassTurnOn
+      slots:
+        area: Kitchen
+        domain: cover
+        device_class: blind
+    response: "Yn agor y bleinds"
+
+  - sentences:
+      - "agor y llenni"
+      - "agor y llenni yma"
+    intent:
+      name: HassTurnOn
+      context:
+        area: Living Room
+      slots:
+        domain: cover
+        area: Living Room
+        device_class: curtain
+    response: "Yn agor y llenni"

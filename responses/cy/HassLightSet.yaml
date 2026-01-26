@@ -2,5 +2,5 @@ language: cy
 responses:
   intents:
     HassLightSet:
-      brightness: "TODO: Brightness set"
-      color: "TODO: Color set"
+      brightness: "Wedi gosod disgleirdeb"
+      color: "Wedi gosod lliw"

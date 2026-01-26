@@ -2,7 +2,33 @@ language: cy
 intents:
   HassTurnOff:
     data:
-      - sentences: []
+      - sentences:
+          - "<cau> <name> [<yn> <area>]"
+        requires_context:
+          domain: cover
+        response: cover
+
+      - sentences:
+          - "<cau> [<y>] drws garej"
         slots:
           domain: cover
-          name: all
+          device_class: garage
+        response: cover_device_class
+
+      - sentences:
+          - "<cau> [<y>] {cover_classes:device_class} <yn> <area>"
+          - "<cau> <area> {cover_classes:device_class}"
+        slots:
+          domain: cover
+        response: cover_device_class
+
+      - sentences:
+          - "<cau> [<y>] {cover_classes:device_class} [<yma>]"
+        expansion_rules:
+          yma: "yma"
+        slots:
+          domain: cover
+        response: cover_device_class
+        requires_context:
+          area:
+            slot: true

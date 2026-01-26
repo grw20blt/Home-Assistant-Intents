@@ -2,4 +2,15 @@ language: cy
 intents:
   HassMediaNext:
     data:
-      - sentences: []
+      - sentences:
+          - "((nesaf|skip);<name>)"
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "(nesaf|skip)"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(nesaf|skip) [[y] (trac|cân|eitem)] [yn|ym] <area>"
+          - "(nesaf|skip) <area>"

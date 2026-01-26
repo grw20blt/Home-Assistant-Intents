@@ -1,6 +1,22 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "ticio prynu llefrith i ffwrdd o fy rhestr gwaith"
+      - "cwblhau prynu llefrith o'r rhestr gwaith"
+      - "dileu prynu llefrith o fy rhestr gwaith"
     intent:
       name: HassListCompleteItem
-      slots: {}
+      slots:
+        item: "prynu llefrith"
+        name: "Work"
+    response: "Wedi cwblhau prynu llefrith"
+
+  - sentences:
+      - "ticio galw mam o'r rhestr tasgau"
+      - "cwblhau galw mam o fy rhestr tasgau"
+    intent:
+      name: HassListCompleteItem
+      slots:
+        item: "galw mam"
+        name: "Tasks"
+    response: "Wedi cwblhau galw mam"
