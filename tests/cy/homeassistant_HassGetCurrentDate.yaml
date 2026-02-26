@@ -4,7 +4,7 @@ tests:
       - "beth yw'r dyddiad"
       - "beth yw'r dyddiad heddiw"
       - "beth yw dyddiad heddiw"
-      - "dweud wrthyf beth yw'r dyddiad"
+      - "pa dyddiad yw hi"
     intent:
       name: HassGetCurrentDate
     response: Medi 17fed, 2013

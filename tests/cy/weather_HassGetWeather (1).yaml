@@ -1,0 +1,31 @@
+language: cy
+tests:
+  - sentences:
+      - "sut mae'r tywydd?"
+      - "beth yw'r tywydd?"
+    intent:
+      name: HassGetWeather
+    response: 47 °F a glaw
+
+  - sentences:
+      - "sut mae'r tywydd yn Llundain?"
+      - "be ydi'r tywydd yn Llundain?"
+    intent:
+      name: HassGetWeather
+      slots:
+        name: London
+    response: 47 °F a glaw
+
+  - sentences:
+      - "sut mae tywydd Los Angeles?"
+    intent:
+      name: HassGetWeather
+      slots:
+        name: Los Angeles
+    response: 76 °F a clir
+
+  - sentences:
+      - "beth yw'r tywydd?"
+    intent:
+      name: HassGetWeather
+    response: 47 °F a glaw
