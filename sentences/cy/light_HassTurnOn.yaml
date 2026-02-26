@@ -1,8 +1,91 @@
-language: cy
+---
+language: "cy"
 intents:
   HassTurnOn:
     data:
-      - sentences: []
+      # Troi golau penodol ymlaen - Turn on a specific light
+      - sentences:
+          - "<troi> {name} <golau> ymlaen [<yn_area_floor>]"
+          - "<troi> <golau> {name} ymlaen [<yn_area_floor>]"
+          - "<troi> ymlaen <golau> {name} [<yn_area_floor>]"
+          - "cynnau <golau> {name} [<yn_area_floor>]"
+          - "cynnau {name} <golau> [<yn_area_floor>]"
+          - "rhoi <golau> {name} ymlaen [<yn_area_floor>]"
+          - "rhoi {name} <golau> ymlaen [<yn_area_floor>]"
+        requires_context:
+          domain: "light"
+
+      # Troi pob golau mewn ardal ymlaen - Turn on all lights in an area
+      - sentences:
+          - "goleuor <area>"
+          - "<golau> ymlaen <yn> <area>"
+          - "<golau> <area> ymlaen"
+          - "<troi> [<pob>] <golau> <area> ymlaen"
+          - "<troi> [<pob>] <golau> <yn> <area> ymlaen"
+          - "<troi> ymlaen [<pob>] <golau> <area>"
+          - "<troi> ymlaen [<pob>] <golau> <yn> <area>"
+          - "cynnau [<pob>] <golau> <area>"
+          - "cynnau [<pob>] <golau> <yn> <area>"
+          - "rhoi [<pob>] <golau> <area> ymlaen"
+          - "rhoi [<pob>] <golau> <yn> <area> ymlaen"
         slots:
-          domain: light
-          name: all
+          domain: "light"
+        response: "lights_area"
+
+      # Troi pob golau ar lawr ymlaen - Turn on all lights on a floor
+      - sentences:
+          - "goleuor <floor>"
+          - "<golau> ymlaen ar <floor>"
+          - "<golau> <floor> ymlaen"
+          - "<troi> [<pob>] <golau> <floor> ymlaen"
+          - "<troi> [<pob>] <golau> ar <floor> ymlaen"
+          - "<troi> ymlaen [<pob>] <golau> <floor>"
+          - "<troi> ymlaen [<pob>] <golau> ar <floor>"
+          - "cynnau [<pob>] <golau> <floor>"
+          - "cynnau [<pob>] <golau> ar <floor>"
+          - "rhoi [<pob>] <golau> <floor> ymlaen"
+          - "rhoi [<pob>] <golau> ar <floor> ymlaen"
+        response: "lights_floor"
+        slots:
+          domain: "light"
+
+      # Troi pob golau yn y cartref ymlaen - Turn on all lights in the home
+      - sentences:
+          - "goleuor <pob> man"
+          - "goleuor <ym_mhobman>"
+          - "<troi> <pob> <golau> ymlaen [<ym_mhobman>]"
+          - "<troi> ymlaen <pob> <golau> [<ym_mhobman>]"
+          - "<troi> [<y>] <golau> ymlaen <ym_mhobman>"
+          - "cynnau <pob> <golau> [<ym_mhobman>]"
+          - "cynnau [<y>] <golau> <ym_mhobman>"
+          - "rhoi <pob> <golau> ymlaen [<ym_mhobman>]"
+          - "rhoi [<y>] <golau> ymlaen <ym_mhobman>"
+          - "gwneud yn siŵr [bod] <pob> <golau> ymlaen"
+          - "sicrhau [bod] <pob> <golau> ymlaen"
+        response: "light_all"
+        slots:
+          domain: "light"
+
+      # Troi goleuadau ymlaen yn yr un ardal â dyfais lloeren - Turn on lights in the same area as a satellite device
+      - sentences:
+          # Explicit <yma> optional pob
+          - "<troi> [<pob>] <golau> ymlaen <yma>"
+          - "<troi> [<pob>] <golau> <yma> ymlaen"
+          - "<troi> ymlaen [<pob>] <golau> <yma>"
+          - "cynnau [<pob>] <golau> <yma>"
+          - "[<pob>] <golau> ymlaen <yma>"
+
+          # Implicit <yma> heb pob
+          - "<troi> [<y>] <golau> ymlaen [<yma>]"
+          - "<troi> [<y>] <golau> [<yma>] ymlaen"
+          - "<troi> ymlaen [<y>] <golau> [<yma>]"
+          - "cynnau [<y>] <golau> [<yma>]"
+          - "<golau> ymlaen [<yma>]"
+          - "goleuor (hi|<yma>)"
+          - "goleuor [<yma>]"
+        response: "lights_area"
+        slots:
+          domain: "light"
+        requires_context:
+          area:
+            slot: true
